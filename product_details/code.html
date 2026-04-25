@@ -294,6 +294,24 @@
 </ul>
 </div>
 </div>
+<!-- Comments Section -->
+<div class="bg-surface-container-lowest p-margin-mobile mt-sm">
+<h2 class="font-label-sm text-label-sm text-on-surface font-semibold mb-sm">Comments</h2>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://shopee-2.disqus.com/product-details';
+        this.page.identifier = 'product-details';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://shopee-2.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
 </main>
 <!-- Contextual Bottom Action Bar -->
 <div class="fixed bottom-0 left-0 w-full h-[60px] bg-surface-container-lowest flex items-stretch z-50 border-t border-surface-container-highest shadow-[0_-2px_10px_rgba(0,0,0,0.05)] pb-safe">
