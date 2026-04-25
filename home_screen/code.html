@@ -267,6 +267,24 @@
 </div>
 </div>
 </section>
+<!-- Comments Section -->
+<section class="px-margin-mobile py-md bg-white mt-sm">
+<h2 class="font-h2 text-h2 text-on-background mb-md">Comments</h2>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://shopee-2.disqus.com/home';
+        this.page.identifier = 'home-screen';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://shopee-2.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
 </main>
 <!-- BottomNavBar -->
 <nav class="fixed bottom-0 left-0 w-full h-16 z-50 flex justify-around items-center pb-safe bg-white/95 backdrop-blur-md border-t border-zinc-100 shadow-[0_-2px_10px_rgba(0,0,0,0.05)] font-['Plus_Jakarta_Sans'] text-[10px] font-medium">
