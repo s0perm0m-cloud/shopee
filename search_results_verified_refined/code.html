@@ -181,7 +181,7 @@
   </head>
 <body class="bg-surface text-on-surface antialiased font-body-md overflow-x-hidden min-h-screen pb-16">
 <!-- TopAppBar -->
-<header class="bg-white dark:bg-gray-950 font-['Plus_Jakarta_Sans'] antialiased docked full-width top-0 border-b border-gray-100 dark:border-gray-800 shadow-sm fixed top-0 left-0 w-full z-50 flex items-center px-3 py-2 h-14">
+<header class="bg-white dark:bg-gray-950 font-['Plus_Jakarta_Sans'] antialiased border-b border-gray-100 dark:border-gray-800 shadow-sm fixed top-0 left-0 w-full z-50 flex items-center px-3 py-2" style="padding-top:44px;height:calc(56px + 44px);">
 <button class="mr-3 text-on-surface">
 <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
 </button>
@@ -198,9 +198,9 @@
 <span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
 </button>
 </header>
-<main class="pt-[64px]"> <!-- Account for fixed header + filter bar -->
+<main class="pt-[108px]"> <!-- Account for fixed header + dynamic island -->
 <!-- Filter/Sort Bar -->
-<div class="bg-white border-b border-surface-container-high sticky top-14 z-40">
+<div class="bg-white border-b border-surface-container-high sticky z-40" style="top:calc(56px + 44px);">
 <div class="flex items-center justify-between px-margin-mobile py-2 overflow-x-auto no-scrollbar gap-2">
 <button class="flex items-center gap-1 px-3 py-1.5 rounded-full border border-primary text-primary bg-primary-fixed font-label-sm text-label-sm whitespace-nowrap">
                     Relevance
@@ -399,4 +399,95 @@
 <span>Me</span>
 </a>
 </nav>
+<script>
+(function() {
+    function navigateTo(src) {
+        try { window.parent.loadScreen(src, null); }
+        catch(e) { window.location.href = '../' + src; }
+    }
+
+    // Back button → home
+    var backBtn = document.querySelector('header button');
+    if (backBtn) backBtn.addEventListener('click', function() { navigateTo('home_screen/code.html'); });
+
+    // Search input: Enter triggers a visual search update
+    var searchInput = document.querySelector('header input[type="text"]');
+    if (searchInput) {
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') { e.preventDefault(); searchInput.blur(); }
+        });
+    }
+
+    // Sort/Filter buttons
+    var sortBtns = Array.from(document.querySelectorAll('.sticky button'));
+    var productGrid = document.querySelector('.grid.grid-cols-2');
+
+    if (productGrid && sortBtns.length) {
+        // Gather product cards (exclude col-span-2 progressive disclosure)
+        var cards = Array.from(productGrid.querySelectorAll(':scope > div:not(.col-span-2)'));
+        var progressiveEl = productGrid.querySelector('.col-span-2');
+        var productData = [
+            { el: cards[0], price: 129.00, rating: 4.9, sold: 10000, date: 4 },
+            { el: cards[1], price: 89.50,  rating: 4.8, sold: 5200,  date: 3 },
+            { el: cards[2], price: 15.99,  rating: 4.5, sold: 25000, date: 2 },
+            { el: cards[3], price: 34.50,  rating: 4.7, sold: 1200,  date: 1 },
+        ];
+        var priceAsc = true;
+
+        function setActive(btn) {
+            sortBtns.forEach(function(b) {
+                b.classList.remove('border-primary','text-primary','bg-primary-fixed');
+                b.classList.add('border-surface-variant','text-on-surface-variant','bg-surface-container-lowest');
+            });
+            btn.classList.remove('border-surface-variant','text-on-surface-variant','bg-surface-container-lowest');
+            btn.classList.add('border-primary','text-primary','bg-primary-fixed');
+        }
+
+        function reorder(sorted) {
+            cards.forEach(function(c) { c.remove(); });
+            var first2 = sorted.slice(0, 2);
+            var rest   = sorted.slice(2);
+            if (progressiveEl) {
+                first2.forEach(function(d) { productGrid.insertBefore(d.el, progressiveEl); });
+                rest.forEach(function(d) { productGrid.appendChild(d.el); });
+            } else {
+                sorted.forEach(function(d) { productGrid.appendChild(d.el); });
+            }
+        }
+
+        sortBtns.forEach(function(btn, i) {
+            btn.addEventListener('click', function() {
+                if (i === 4) { navigateTo('smart_search_filters/code.html'); return; }
+                setActive(btn);
+                var sorted;
+                if (i === 0) sorted = productData.slice().sort(function(a,b){ return b.rating - a.rating; });
+                else if (i === 1) sorted = productData.slice().sort(function(a,b){ return b.date - a.date; });
+                else if (i === 2) sorted = productData.slice().sort(function(a,b){ return b.sold - a.sold; });
+                else if (i === 3) {
+                    priceAsc = !priceAsc;
+                    sorted = productData.slice().sort(function(a,b){ return priceAsc ? a.price-b.price : b.price-a.price; });
+                }
+                if (sorted) reorder(sorted);
+            });
+        });
+    }
+
+    // Retry button: hide error banner
+    var errorBanner = document.querySelector('.bg-error-container');
+    var retryBtn = errorBanner ? errorBanner.querySelector('button') : null;
+    if (retryBtn) retryBtn.addEventListener('click', function() { errorBanner.style.display = 'none'; });
+
+    // Hide static loading spinner
+    var spinnerWrap = document.querySelector('.animate-spin') ? document.querySelector('.animate-spin').closest('.py-4') : null;
+    if (spinnerWrap) spinnerWrap.style.display = 'none';
+
+    // Bottom nav
+    var navLinks = Array.from(document.querySelectorAll('nav a'));
+    var navTargets = ['home_screen/code.html', null, null, null, 'my_profile/code.html'];
+    navLinks.forEach(function(a, i) {
+        a.href = '#';
+        if (navTargets[i]) a.addEventListener('click', function(e) { e.preventDefault(); navigateTo(navTargets[i]); });
+    });
+})();
+</script>
 </body></html>

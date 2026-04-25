@@ -309,4 +309,41 @@
 <span class="mt-1">Me</span>
 </a>
 </nav>
+<script>
+(function() {
+    function navigateTo(src) {
+        try { window.parent.loadScreen(src, null); }
+        catch(e) { window.location.href = '../' + src; }
+    }
+
+    // Search bar: Enter key or click → search results
+    var searchInput = document.querySelector('input[placeholder="Search Shopee"]');
+    var searchBar = searchInput ? searchInput.closest('div.flex') : null;
+    if (searchBar) {
+        searchBar.style.cursor = 'pointer';
+        searchBar.addEventListener('click', function() { navigateTo('search_results_verified_refined/code.html'); });
+    }
+    if (searchInput) {
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') { e.preventDefault(); navigateTo('search_results_verified_refined/code.html'); }
+        });
+    }
+
+    // Bottom nav wiring
+    var navLinks = Array.from(document.querySelectorAll('nav a'));
+    var navTargets = [
+        'home_screen/code.html',
+        'search_results_verified_refined/code.html',
+        null,
+        null,
+        'my_profile/code.html'
+    ];
+    navLinks.forEach(function(a, i) {
+        a.href = '#';
+        if (navTargets[i]) {
+            a.addEventListener('click', function(e) { e.preventDefault(); navigateTo(navTargets[i]); });
+        }
+    });
+})();
+</script>
 </body></html>

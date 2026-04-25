@@ -272,4 +272,16 @@
 </div>
 </div>
 </main>
+<script>
+(function() {
+    function navigateTo(src) {
+        try { window.parent.loadScreen(src, null); }
+        catch(e) { window.location.href = '../' + src; }
+    }
+
+    // Search icon button → search results
+    var searchBtn = document.querySelector('header button');
+    if (searchBtn) searchBtn.addEventListener('click', function() { navigateTo('search_results_verified_refined/code.html'); });
+})();
+</script>
 </body></html>

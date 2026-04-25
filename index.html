@@ -254,7 +254,14 @@
   function loadScreen(src, btn) {
     document.getElementById('screen').src = src;
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+    if (btn) {
+      btn.classList.add('active');
+    } else {
+      document.querySelectorAll('.nav-btn').forEach(b => {
+        const oc = b.getAttribute('onclick') || '';
+        if (oc.includes(src)) b.classList.add('active');
+      });
+    }
   }
 </script>
 

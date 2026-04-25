@@ -121,7 +121,7 @@
   </head>
 <body class="bg-background text-on-background antialiased pb-24">
 <!-- TopAppBar -->
-<header class="fixed top-0 left-0 w-full z-50 flex items-center px-3 py-2 h-14 bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800 shadow-sm font-['Plus_Jakarta_Sans'] antialiased">
+<header class="fixed top-0 left-0 w-full z-50 flex items-center px-3 py-2 bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800 shadow-sm font-['Plus_Jakarta_Sans'] antialiased" style="padding-top:44px;height:calc(56px + 44px);">
 <div class="flex items-center justify-between w-full">
 <button class="p-2 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors duration-200 ease-in-out rounded-full">
 <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
@@ -132,7 +132,7 @@
             </button>
 </div>
 </header>
-<main class="pt-14 px-margin-mobile">
+<main class="pt-[100px] px-margin-mobile">
 <!-- Smart Defaults / Quick Filters -->
 <section class="mt-md mb-lg">
 <div class="flex overflow-x-auto hide-scrollbar gap-sm py-2">
@@ -254,4 +254,160 @@
             </button>
 </div>
 </div>
+<script>
+(function() {
+    function navigateTo(src) {
+        try { window.parent.loadScreen(src, null); }
+        catch(e) { window.location.href = '../' + src; }
+    }
+
+    // Back button → search results
+    var backBtn = document.querySelector('header button:first-of-type');
+    if (backBtn) backBtn.addEventListener('click', function() { navigateTo('search_results_verified_refined/code.html'); });
+
+    // Apply Filters → search results
+    var applyBtn = document.querySelector('.fixed.bottom-0 button');
+    if (applyBtn) applyBtn.addEventListener('click', function() { navigateTo('search_results_verified_refined/code.html'); });
+
+    // Quick filter pills toggle
+    var quickFilters = Array.from(document.querySelectorAll('section:first-of-type button'));
+    quickFilters.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var isActive = btn.classList.contains('bg-primary');
+            // Deactivate all
+            quickFilters.forEach(function(b) {
+                b.classList.remove('bg-primary','text-on-primary','border-primary','shadow-[0_2px_8px_rgba(178,34,4,0.15)]');
+                b.classList.add('bg-surface-container-lowest','text-on-surface','border-surface-variant');
+            });
+            // Activate clicked (unless toggling off)
+            if (!isActive) {
+                btn.classList.remove('bg-surface-container-lowest','text-on-surface','border-surface-variant');
+                btn.classList.add('bg-primary','text-on-primary','border-primary','shadow-[0_2px_8px_rgba(178,34,4,0.15)]');
+            }
+        });
+    });
+
+    // Category grid items toggle
+    var categoryItems = Array.from(document.querySelectorAll('.grid.grid-cols-3 > div'));
+    categoryItems.forEach(function(item) {
+        item.style.cursor = 'pointer';
+        item.addEventListener('click', function() {
+            var isActive = item.classList.contains('bg-primary-fixed');
+            // Deactivate all
+            categoryItems.forEach(function(c) {
+                c.classList.remove('bg-primary-fixed','text-on-primary-fixed-variant','border-2','border-primary');
+                c.classList.add('bg-surface-container-lowest','text-on-surface','border','border-surface-variant');
+                var check = c.querySelector('.absolute.top-0.right-0');
+                if (check) check.remove();
+                var corner = c.querySelector('.border-t-primary');
+                if (corner) corner.remove();
+            });
+            if (!isActive) {
+                item.classList.remove('bg-surface-container-lowest','text-on-surface','border','border-surface-variant');
+                item.classList.add('bg-primary-fixed','text-on-primary-fixed-variant','border-2','border-primary');
+                // Add checkmark corner
+                var corner = document.createElement('div');
+                corner.className = 'absolute top-0 right-0 w-0 h-0 border-t-[20px] border-l-[20px] border-t-primary border-l-transparent';
+                var check = document.createElement('span');
+                check.className = 'material-symbols-outlined absolute top-0 right-0 text-white text-[10px] -mt-[2px] -mr-[2px]';
+                check.textContent = 'check';
+                item.appendChild(corner);
+                item.appendChild(check);
+            }
+        });
+    });
+
+    // Accessories & Parts buttons toggle
+    var accessoryBtns = Array.from(document.querySelectorAll('.flex.flex-wrap.gap-2 button'));
+    accessoryBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var isActive = btn.classList.contains('border-primary');
+            accessoryBtns.forEach(function(b) {
+                b.classList.remove('bg-white','text-primary','border-primary');
+                b.classList.add('bg-surface-container-low','text-on-surface','border-transparent');
+            });
+            if (!isActive) {
+                btn.classList.remove('bg-surface-container-low','text-on-surface','border-transparent');
+                btn.classList.add('bg-white','text-primary','border-primary');
+            }
+        });
+    });
+
+    // Price chips → fill min/max
+    var minInput = document.querySelector('input[placeholder="Min"]');
+    var maxInput = document.querySelector('input[placeholder="Max"]');
+    var priceChips = Array.from(document.querySelectorAll('.flex.gap-2.mt-sm button'));
+    var priceRanges = [{min:'', max:'25'}, {min:'25', max:'50'}, {min:'50', max:''}];
+    priceChips.forEach(function(btn, i) {
+        btn.addEventListener('click', function() {
+            priceChips.forEach(function(b) {
+                b.classList.remove('bg-primary-fixed','border-primary','text-primary');
+                b.classList.add('bg-surface-container-lowest','border-surface-variant','text-on-surface');
+            });
+            btn.classList.remove('bg-surface-container-lowest','border-surface-variant','text-on-surface');
+            btn.classList.add('bg-primary-fixed','border-primary','text-primary');
+            if (minInput) minInput.value = priceRanges[i].min;
+            if (maxInput) maxInput.value = priceRanges[i].max;
+        });
+    });
+
+    // Expandable sections (Brand, Shipping Options, Rating)
+    var accordionBtns = Array.from(document.querySelectorAll('section:last-of-type > button'));
+    accordionBtns.forEach(function(btn) {
+        var contentDiv = null;
+        btn.addEventListener('click', function() {
+            var icon = btn.querySelector('.material-symbols-outlined[data-icon="expand_more"]');
+            if (!contentDiv) {
+                contentDiv = document.createElement('div');
+                contentDiv.className = 'overflow-hidden transition-all duration-200 pb-3';
+                contentDiv.innerHTML = '<p class="text-body-md text-on-surface-variant py-2">No options available for this filter yet.</p>';
+                btn.after(contentDiv);
+            }
+            var isOpen = contentDiv.style.display !== 'none' && contentDiv.dataset.open === '1';
+            if (isOpen) {
+                contentDiv.style.display = 'none';
+                contentDiv.dataset.open = '0';
+                if (icon) { icon.style.transform = 'rotate(0deg)'; icon.style.transition = 'transform 0.2s'; }
+            } else {
+                contentDiv.style.display = 'block';
+                contentDiv.dataset.open = '1';
+                if (icon) { icon.style.transform = 'rotate(180deg)'; icon.style.transition = 'transform 0.2s'; }
+            }
+        });
+    });
+
+    // Reset button
+    var resetBtn = document.querySelector('header button:last-of-type');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', function() {
+            // Reset quick filters to none active
+            quickFilters.forEach(function(b) {
+                b.classList.remove('bg-primary','text-on-primary','border-primary','shadow-[0_2px_8px_rgba(178,34,4,0.15)]');
+                b.classList.add('bg-surface-container-lowest','text-on-surface','border-surface-variant');
+            });
+            // Reset categories
+            categoryItems.forEach(function(c) {
+                c.classList.remove('bg-primary-fixed','text-on-primary-fixed-variant','border-2','border-primary');
+                c.classList.add('bg-surface-container-lowest','text-on-surface','border','border-surface-variant');
+                var check = c.querySelector('.absolute.top-0.right-0:not([class*="border"])');
+                if (check) check.remove();
+                var corner = c.querySelector('.border-t-primary');
+                if (corner) corner.remove();
+            });
+            // Reset accessories
+            accessoryBtns.forEach(function(b) {
+                b.classList.remove('bg-white','text-primary','border-primary');
+                b.classList.add('bg-surface-container-low','text-on-surface','border-transparent');
+            });
+            // Reset price
+            if (minInput) minInput.value = '';
+            if (maxInput) maxInput.value = '';
+            priceChips.forEach(function(b) {
+                b.classList.remove('bg-primary-fixed','border-primary','text-primary');
+                b.classList.add('bg-surface-container-lowest','border-surface-variant','text-on-surface');
+            });
+        });
+    }
+})();
+</script>
 </body></html>
