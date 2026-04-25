@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shopping Cart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#eeeeee",
+                        "error": "#ba1a1a",
+                        "background": "#f9f9f9",
+                        "tertiary-fixed-dim": "#63dac7",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary": "#00685c",
+                        "tertiary-container": "#008375",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#5b403b",
+                        "on-tertiary-container": "#f4fffb",
+                        "primary-fixed": "#ffdad3",
+                        "surface-tint": "#b62506",
+                        "inverse-surface": "#2f3131",
+                        "on-surface": "#1a1c1c",
+                        "surface-dim": "#dadada",
+                        "primary-container": "#d63c1e",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary-container": "#fffbff",
+                        "on-secondary-fixed": "#271900",
+                        "primary": "#b22204",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary-fixed-variant": "#005047",
+                        "on-secondary-container": "#684a00",
+                        "secondary-container": "#f9b500",
+                        "inverse-primary": "#ffb4a4",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#7b5800",
+                        "outline": "#8f7069",
+                        "surface-bright": "#f9f9f9",
+                        "primary-fixed-dim": "#ffb4a4",
+                        "on-secondary-fixed-variant": "#5d4200",
+                        "surface": "#f9f9f9",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary-fixed-dim": "#ffbb0c",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#3e0500",
+                        "on-primary-fixed-variant": "#8d1600",
+                        "tertiary-fixed": "#81f6e3",
+                        "outline-variant": "#e3beb6",
+                        "surface-container-low": "#f3f3f3",
+                        "secondary-fixed": "#ffdea6",
+                        "on-tertiary-fixed": "#00201c",
+                        "surface-variant": "#e2e2e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "margin-mobile": "12px",
+                        "lg": "24px",
+                        "unit": "4px",
+                        "xs": "4px",
+                        "gutter": "10px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "h1": ["Plus Jakarta Sans"],
+                        "h3": ["Plus Jakarta Sans"],
+                        "price-lg": ["Plus Jakarta Sans"],
+                        "h2": ["Plus Jakarta Sans"],
+                        "caption": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "h1": ["22px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "h3": ["16px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "price-lg": ["20px", {"lineHeight": "20px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "h2": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "caption": ["10px", {"lineHeight": "12px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "22px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom scrollbar for horizontal sections if needed */
+        ::-webkit-scrollbar { width: 0px; height: 0px; }
+        .custom-checkbox {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 1px solid #8f7069; /* outline color */
+            border-radius: 2px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+        }
+        .custom-checkbox:checked {
+            background-color: #b22204; /* primary color */
+            border-color: #b22204;
+        }
+        .custom-checkbox:checked::after {
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            top: 1px;
+            left: 5px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container font-body-md text-on-surface antialiased overflow-x-hidden min-h-screen pb-32">
+<!-- TopAppBar from JSON Rules -->
+<header class="flex items-center justify-between px-3 h-14 w-full fixed top-0 z-50 bg-white dark:bg-zinc-950 border-b border-zinc-100 dark:border-zinc-800 shadow-sm dark:shadow-none font-['Plus_Jakarta_Sans']">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#EE4D2D] dark:text-[#FF5733] hover:bg-zinc-50 dark:hover:bg-zinc-900 active:opacity-80 transition-opacity cursor-pointer">qr_code_scanner</span>
+<h1 class="text-sm font-normal text-[#EE4D2D] dark:text-[#FF5733] font-bold text-xl line-clamp-1">Shopping Cart</h1>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-zinc-500 font-label-sm text-label-sm mr-2 cursor-pointer active:opacity-80">Edit</span>
+<span class="material-symbols-outlined text-[#EE4D2D] dark:text-[#FF5733] hover:bg-zinc-50 dark:hover:bg-zinc-900 active:opacity-80 transition-opacity cursor-pointer">shopping_cart</span>
+</div>
+</header>
+<!-- Main Cart Content Container -->
+<main class="pt-14 w-full max-w-3xl mx-auto flex flex-col gap-sm">
+<!-- Free Shipping Banner -->
+<div class="bg-primary-fixed-dim/30 px-md py-sm flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<span class="font-label-sm text-label-sm text-on-surface">Free shipping applied for orders over $15.</span>
+</div>
+<!-- Shop Group 1 -->
+<section class="bg-surface-container-lowest flex flex-col pt-sm pb-md">
+<!-- Shop Header -->
+<div class="flex items-center px-md py-sm border-b border-surface-container-highest gap-sm">
+<input checked="" class="custom-checkbox" type="checkbox"/>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">storefront</span>
+<span class="font-h3 text-h3 text-on-surface flex-1 flex items-center gap-xs">
+                    TechStore Official
+                    <span class="material-symbols-outlined text-on-surface-variant text-[16px]">chevron_right</span>
+</span>
+</div>
+<!-- Item 1 -->
+<div class="flex px-md pt-md gap-sm">
+<div class="flex items-center pt-lg h-full">
+<input checked="" class="custom-checkbox" type="checkbox"/>
+</div>
+<div class="flex gap-sm flex-1">
+<!-- Product Image -->
+<div class="w-24 h-24 bg-surface-variant rounded-DEFAULT shrink-0 overflow-hidden relative border border-surface-container-highest">
+<img alt="high angle shot of minimalist matte black wireless over-ear headphones on a clean white desk with soft natural window lighting" class="w-full h-full object-cover" data-alt="high angle shot of minimalist matte black wireless over-ear headphones on a clean white desk with soft natural window lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY3o2GLBP1QfWfqSy4k-cS9j80KIrWkoiKfb2spBcF4mQVHrRLH08JuAyRsWG5N02vVIauMXKLoUthmStOh_owwxuXo0dzCH4V3Gm6djpd04y1q3IHNf-0xS6GATNDaS_ps4bEHyJwUX58AgLZjr0urZ87KgG_O81c0G9ChCvKtGUjdMczNoOzpmqX0jEbMGhrxVwGoA-DbDCADQHLgxjiQsyzR2xU9_dS1oPf5Mp6gBYIn96Jrdts9rviCavEh93C6I-PaLk_mxk"/>
+</div>
+<!-- Product Details -->
+<div class="flex flex-col justify-between flex-1">
+<div>
+<h3 class="font-body-md text-body-md text-on-surface line-clamp-2">Premium Noise Cancelling Wireless Headphones Pro Max 2024 Edition</h3>
+<button class="mt-xs bg-surface-container py-[2px] px-sm rounded-DEFAULT flex items-center gap-xs w-fit border border-surface-container-highest">
+<span class="font-caption text-caption text-on-surface-variant">Color: Matte Black</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[14px]">arrow_drop_down</span>
+</button>
+</div>
+<!-- Price & Quantity Row -->
+<div class="flex items-end justify-between mt-sm">
+<div class="flex flex-col">
+<span class="font-caption text-caption text-on-surface-variant line-through">$199.00</span>
+<span class="font-price-lg text-price-lg text-primary">$129.50</span>
+</div>
+<!-- Quantity Selector -->
+<div class="flex items-center border border-outline-variant rounded-sm h-[28px]">
+<button class="w-[28px] h-full flex items-center justify-center border-r border-outline-variant text-on-surface-variant active:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="w-[36px] h-full flex items-center justify-center font-body-md text-body-md text-on-surface">1</span>
+<button class="w-[28px] h-full flex items-center justify-center border-l border-outline-variant text-on-surface-variant active:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Shop Group 2 -->
+<section class="bg-surface-container-lowest flex flex-col pt-sm pb-md">
+<!-- Shop Header -->
+<div class="flex items-center px-md py-sm border-b border-surface-container-highest gap-sm">
+<input class="custom-checkbox" type="checkbox"/>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">storefront</span>
+<span class="font-h3 text-h3 text-on-surface flex-1 flex items-center gap-xs">
+                    LifeStyle Basics
+                    <span class="material-symbols-outlined text-on-surface-variant text-[16px]">chevron_right</span>
+</span>
+</div>
+<!-- Item 2 -->
+<div class="flex px-md pt-md gap-sm opacity-60">
+<div class="flex items-center pt-lg h-full">
+<input class="custom-checkbox" type="checkbox"/>
+</div>
+<div class="flex gap-sm flex-1">
+<!-- Product Image -->
+<div class="w-24 h-24 bg-surface-variant rounded-DEFAULT shrink-0 overflow-hidden relative border border-surface-container-highest">
+<img alt="flat lay of a simple folded white cotton crew neck t-shirt on a light gray background with bright even studio lighting" class="w-full h-full object-cover" data-alt="flat lay of a simple folded white cotton crew neck t-shirt on a light gray background with bright even studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ7yVLE642z1VdMxD5QmgQBJ7TtN6SxK0n41VO7TA0CmfOrSdUKFoa6-ID3aQPd6pAQ2TY2tRYgOKZzqjmNiO7eSNJQIvW_SiGSuNgKUxwOvKap7xaD0hZ3Yg4J7Dbwoil3QVuB38suQhMZIeI_yyQiGSgQvZJqy0xCgyMiN-unnfVlIJIgtDXXnVVAS88hs4WG1hnJqGI_F-9ttLrAqQrw_IYkBStFm9cowkTVY9FPfTXyqgkU8giAX9MO0lHWpbBiAPdNL1tNQk"/>
+</div>
+<!-- Product Details -->
+<div class="flex flex-col justify-between flex-1">
+<div>
+<h3 class="font-body-md text-body-md text-on-surface line-clamp-2">Essential Organic Cotton Classic T-Shirt Unisex Pack of 3</h3>
+<button class="mt-xs bg-surface-container py-[2px] px-sm rounded-DEFAULT flex items-center gap-xs w-fit border border-surface-container-highest">
+<span class="font-caption text-caption text-on-surface-variant">Size: L, Color: White</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[14px]">arrow_drop_down</span>
+</button>
+</div>
+<!-- Price & Quantity Row -->
+<div class="flex items-end justify-between mt-sm">
+<div class="flex flex-col">
+<span class="font-price-lg text-price-lg text-on-surface-variant">$24.00</span>
+</div>
+<!-- Quantity Selector -->
+<div class="flex items-center border border-outline-variant rounded-sm h-[28px]">
+<button class="w-[28px] h-full flex items-center justify-center border-r border-outline-variant text-on-surface-variant active:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="w-[36px] h-full flex items-center justify-center font-body-md text-body-md text-on-surface">2</span>
+<button class="w-[28px] h-full flex items-center justify-center border-l border-outline-variant text-on-surface-variant active:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Voucher & Extras Section -->
+<div class="flex flex-col gap-[1px]">
+<button class="bg-surface-container-lowest flex items-center justify-between p-md active:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
+<span class="font-body-md text-body-md text-on-surface">Platform Voucher</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Select or enter code</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">chevron_right</span>
+</div>
+</button>
+<div class="bg-surface-container-lowest flex items-center justify-between p-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+<span class="font-body-md text-body-md text-on-surface">Use 500 Coins</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">-$5.00</span>
+<!-- Simple Toggle -->
+<div class="w-10 h-6 bg-surface-container-highest rounded-full relative cursor-pointer">
+<div class="w-5 h-5 bg-surface-container-lowest rounded-full absolute top-[2px] left-[2px] shadow-sm"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Checkout Bar -->
+<footer class="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-surface-container-highest shadow-[0_-4px_12px_rgba(0,0,0,0.03)] z-50">
+<div class="max-w-3xl mx-auto h-[64px] flex items-center justify-between pl-md pr-0">
+<!-- Left: Select All -->
+<div class="flex items-center gap-sm cursor-pointer h-full">
+<input checked="" class="custom-checkbox" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">All</span>
+</div>
+<!-- Right: Total & Checkout Button -->
+<div class="flex items-center h-full gap-md">
+<div class="flex flex-col items-end justify-center">
+<div class="flex items-baseline gap-xs">
+<span class="font-body-md text-body-md text-on-surface">Total:</span>
+<span class="font-price-lg text-price-lg text-primary">$129.50</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Saved $69.50</span>
+</div>
+<button class="bg-primary text-on-primary h-full px-lg min-w-[120px] flex items-center justify-center font-h3 text-h3 active:opacity-90 transition-opacity">
+                    Check Out (1)
+                </button>
+</div>
+</div>
+</footer>
+</body></html>

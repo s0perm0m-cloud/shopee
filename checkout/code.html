@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#eeeeee",
+                    "error": "#ba1a1a",
+                    "background": "#f9f9f9",
+                    "tertiary-fixed-dim": "#63dac7",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "tertiary": "#00685c",
+                    "tertiary-container": "#008375",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#5b403b",
+                    "on-tertiary-container": "#f4fffb",
+                    "primary-fixed": "#ffdad3",
+                    "surface-tint": "#b62506",
+                    "inverse-surface": "#2f3131",
+                    "on-surface": "#1a1c1c",
+                    "surface-dim": "#dadada",
+                    "primary-container": "#d63c1e",
+                    "inverse-on-surface": "#f1f1f1",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#e8e8e8",
+                    "on-primary-container": "#fffbff",
+                    "on-secondary-fixed": "#271900",
+                    "primary": "#b22204",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "on-tertiary-fixed-variant": "#005047",
+                    "on-secondary-container": "#684a00",
+                    "secondary-container": "#f9b500",
+                    "inverse-primary": "#ffb4a4",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#7b5800",
+                    "outline": "#8f7069",
+                    "surface-bright": "#f9f9f9",
+                    "primary-fixed-dim": "#ffb4a4",
+                    "on-secondary-fixed-variant": "#5d4200",
+                    "surface": "#f9f9f9",
+                    "surface-container-highest": "#e2e2e2",
+                    "secondary-fixed-dim": "#ffbb0c",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#3e0500",
+                    "on-primary-fixed-variant": "#8d1600",
+                    "tertiary-fixed": "#81f6e3",
+                    "outline-variant": "#e3beb6",
+                    "surface-container-low": "#f3f3f3",
+                    "secondary-fixed": "#ffdea6",
+                    "on-tertiary-fixed": "#00201c",
+                    "surface-variant": "#e2e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "margin-mobile": "12px",
+                    "lg": "24px",
+                    "unit": "4px",
+                    "xs": "4px",
+                    "gutter": "10px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "body-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "label-sm": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "h1": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "h3": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "price-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "h2": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "caption": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-lg": [
+                            "Plus Jakarta Sans"
+                    ]
+            },
+            "fontSize": {
+                    "body-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "h1": [
+                            "22px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "h3": [
+                            "16px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "price-lg": [
+                            "20px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "h2": [
+                            "18px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "caption": [
+                            "10px",
+                            {
+                                    "lineHeight": "12px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "16px",
+                            {
+                                    "lineHeight": "22px",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-high text-on-surface font-body-md text-body-md pt-[56px] pb-[80px] antialiased">
+<!-- TopAppBar (Based on Shared Components JSON) -->
+<header class="bg-white dark:bg-zinc-950 border-b border-zinc-100 dark:border-zinc-800 shadow-sm dark:shadow-none flex items-center justify-between px-3 h-14 w-full fixed top-0 z-50">
+<button class="flex items-center justify-center p-1 hover:bg-zinc-50 dark:hover:bg-zinc-900 active:opacity-80 transition-opacity rounded-full">
+<span class="material-symbols-outlined text-[#EE4D2D] dark:text-[#FF5733]" data-icon="qr_code_scanner">qr_code_scanner</span>
+</button>
+<h1 class="text-[#EE4D2D] font-bold text-xl font-['Plus_Jakarta_Sans']">Checkout</h1>
+<button class="flex items-center justify-center p-1 hover:bg-zinc-50 dark:hover:bg-zinc-900 active:opacity-80 transition-opacity rounded-full">
+<span class="material-symbols-outlined text-[#EE4D2D] dark:text-[#FF5733]" data-icon="shopping_cart">shopping_cart</span>
+</button>
+</header>
+<main class="flex flex-col gap-sm">
+<!-- Shipping Address Section -->
+<section class="bg-surface-container-lowest flex flex-col shadow-sm">
+<!-- Decorative Stripe -->
+<div class="h-1 w-full bg-[repeating-linear-gradient(45deg,#ffdad3,#ffdad3_10px,transparent_10px,transparent_20px,#81f6e3_20px,#81f6e3_30px,transparent_30px,transparent_40px)]"></div>
+<div class="px-margin-mobile py-md flex items-start gap-md relative cursor-pointer active:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-primary mt-1" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<div class="flex-1 pr-md">
+<div class="flex items-center gap-sm mb-1">
+<span class="font-h3 text-h3 text-on-surface">Alex Mercer</span>
+<span class="font-body-md text-body-md text-on-surface-variant">(+1) 555-0198</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 leading-relaxed">
+                        450 Serra Mall, Building 160, Room 112, Stanford, CA 94305
+                    </p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant absolute right-margin-mobile top-1/2 -translate-y-1/2">chevron_right</span>
+</div>
+</section>
+<!-- Order Summary Section -->
+<section class="bg-surface-container-lowest shadow-sm">
+<!-- Shop Header -->
+<div class="px-margin-mobile py-sm border-b border-surface-variant flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-h3 text-h3 text-on-surface">Aura Electronics Official</span>
+</div>
+<!-- Product Item -->
+<div class="px-margin-mobile py-md flex gap-gutter bg-surface-bright">
+<img alt="Wireless Earbuds" class="w-[80px] h-[80px] object-cover rounded-DEFAULT border border-surface-variant shrink-0 shadow-sm" data-alt="sleek matte black wireless earbuds in open charging case on clean white studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEI6DOZp5CNf49BYDmR52JasjOhwDcq4-7LAOnLTRdv_po0-L2WicGsrn_wSH-k1PlOzL-bjed7O4fGnyHAWVYCrcI4mwbBnDvY7LOIunEiWGy7lHvNoQTMhfVecFJBvgNmCpJz8Q6o7YgzcIZmxa9KVRu_-mmJGxK2d090tjgmhXzTPGwtOMYHUEIzmvJWE9DDZ9XJra4txPsjTUQ1NofrTb0H6PkK6-0xn8-XRYXIMNkINFAyFOtSv8uR68pwujt9Jgkd902oi4"/>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<h4 class="font-body-md text-body-md text-on-surface line-clamp-2 leading-tight mb-1">Aura Pro Noise Cancelling True Wireless Earbuds with MagSafe Charging</h4>
+<div class="inline-flex">
+<span class="font-caption text-caption text-on-surface-variant bg-surface-container px-2 py-[2px] rounded-DEFAULT border border-surface-variant">Variant: Midnight Black</span>
+</div>
+</div>
+<div class="flex justify-between items-end mt-2">
+<span class="font-price-lg text-price-lg text-primary">$189.00</span>
+<span class="font-body-md text-body-md text-on-surface-variant">x1</span>
+</div>
+</div>
+</div>
+<!-- Message to Seller -->
+<div class="px-margin-mobile py-sm border-t border-surface-variant flex items-center gap-sm bg-surface-container-lowest">
+<span class="font-body-md text-body-md text-on-surface shrink-0 w-[80px]">Message:</span>
+<input class="flex-1 font-body-md text-body-md text-on-surface-variant bg-transparent border-none focus:ring-0 p-0 placeholder:text-surface-dim" placeholder="(Optional) Leave a message to seller" type="text"/>
+</div>
+</section>
+<!-- Shipping Option Section -->
+<section class="bg-surface-container-lowest shadow-sm px-margin-mobile py-md cursor-pointer active:bg-surface-container-low transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1 border-l-2 border-secondary-container pl-sm">
+<span class="font-label-sm text-label-sm text-tertiary-container uppercase tracking-wider">Shipping Option</span>
+<span class="font-h3 text-h3 text-on-surface">Standard Local</span>
+<span class="font-caption text-caption text-on-surface-variant">Receive by Oct 24 - Oct 26</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="font-body-md text-body-md text-on-surface">$2.50</span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Payment Method Section -->
+<section class="bg-surface-container-lowest shadow-sm px-margin-mobile py-md flex items-center justify-between cursor-pointer active:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-body-md text-body-md text-on-surface">Payment Method</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="font-label-sm text-label-sm text-on-surface bg-surface-container px-2 py-1 rounded-DEFAULT border border-surface-variant">Credit/Debit Card</span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</section>
+<!-- Payment Details Breakdown -->
+<section class="bg-surface-container-lowest shadow-sm px-margin-mobile py-md flex flex-col gap-sm">
+<div class="flex items-center gap-sm mb-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">receipt_long</span>
+<span class="font-h3 text-h3 text-on-surface">Payment Details</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Merchandise Subtotal</span>
+<span class="font-body-md text-body-md text-on-surface">$189.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Shipping Subtotal</span>
+<span class="font-body-md text-body-md text-on-surface">$2.50</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Voucher Discount</span>
+<span class="font-body-md text-body-md text-primary">-$10.00</span>
+</div>
+<div class="flex justify-between items-center pt-md mt-sm border-t border-surface-variant">
+<span class="font-h3 text-h3 text-on-surface">Total Payment</span>
+<span class="font-price-lg text-price-lg text-primary">$181.50</span>
+</div>
+</section>
+<!-- Bottom spacing for fixed action bar -->
+<div class="h-[20px]"></div>
+</main>
+<!-- Fixed Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 w-full h-[64px] bg-surface-container-lowest border-t border-surface-variant flex items-center justify-between z-50 shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
+<div class="flex flex-col flex-1 text-right pr-md justify-center h-full">
+<span class="font-caption text-caption text-on-surface-variant">Total Payment</span>
+<span class="font-price-lg text-price-lg text-primary">$181.50</span>
+</div>
+<button class="h-full px-[32px] min-w-[140px] bg-primary text-on-primary font-h3 text-h3 flex items-center justify-center transition-opacity active:opacity-80">
+            Place Order
+        </button>
+</div>
+</body></html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Search Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-low": "#f3f3f3",
+                      "error": "#ba1a1a",
+                      "surface-dim": "#dadada",
+                      "primary": "#b22204",
+                      "secondary-container": "#f9b500",
+                      "on-tertiary-fixed": "#00201c",
+                      "error-container": "#ffdad6",
+                      "on-secondary": "#ffffff",
+                      "primary-fixed": "#ffdad3",
+                      "inverse-on-surface": "#f1f1f1",
+                      "surface-tint": "#b62506",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#5b403b",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface": "#1a1c1c",
+                      "on-primary-fixed": "#3e0500",
+                      "surface-container-highest": "#e2e2e2",
+                      "secondary-fixed-dim": "#ffbb0c",
+                      "on-error-container": "#93000a",
+                      "surface-bright": "#f9f9f9",
+                      "outline-variant": "#e3beb6",
+                      "on-secondary-fixed": "#271900",
+                      "inverse-primary": "#ffb4a4",
+                      "surface-container": "#eeeeee",
+                      "secondary-fixed": "#ffdea6",
+                      "background": "#f9f9f9",
+                      "secondary": "#7b5800",
+                      "tertiary-fixed": "#81f6e3",
+                      "on-primary-fixed-variant": "#8d1600",
+                      "inverse-surface": "#2f3131",
+                      "tertiary-fixed-dim": "#63dac7",
+                      "surface-variant": "#e2e2e2",
+                      "outline": "#8f7069",
+                      "on-primary": "#ffffff",
+                      "on-secondary-container": "#684a00",
+                      "on-primary-container": "#fffbff",
+                      "on-background": "#1a1c1c",
+                      "surface": "#f9f9f9",
+                      "on-error": "#ffffff",
+                      "primary-container": "#d63c1e",
+                      "tertiary-container": "#008375",
+                      "primary-fixed-dim": "#ffb4a4",
+                      "on-tertiary-fixed-variant": "#005047",
+                      "tertiary": "#00685c",
+                      "on-tertiary-container": "#f4fffb",
+                      "surface-container-high": "#e8e8e8",
+                      "on-secondary-fixed-variant": "#5d4200"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "12px",
+                      "lg": "24px",
+                      "md": "16px",
+                      "unit": "4px",
+                      "xs": "4px",
+                      "gutter": "10px",
+                      "sm": "8px"
+              },
+              "fontFamily": {
+                      "h3": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "price-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "h2": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "h1": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "caption": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "h3": [
+                              "16px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "22px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "price-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "h2": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "h1": [
+                              "22px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "caption": [
+                              "10px",
+                              {
+                                      "lineHeight": "12px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased font-body-md overflow-x-hidden min-h-screen pb-16">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-gray-950 font-['Plus_Jakarta_Sans'] antialiased docked full-width top-0 border-b border-gray-100 dark:border-gray-800 shadow-sm fixed top-0 left-0 w-full z-50 flex items-center px-3 py-2 h-14">
+<button class="mr-3 text-on-surface">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex-1 relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+</div>
+<input class="block w-full pl-10 pr-10 py-1.5 border-none rounded-lg bg-surface-container-low text-body-md text-on-surface focus:ring-0" placeholder="Search..." type="text" value="Wireless Earbuds"/>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
+<span class="material-symbols-outlined text-outline" data-icon="photo_camera">photo_camera</span>
+</div>
+</div>
+<button class="ml-3 text-primary-container">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+</header>
+<main class="pt-[64px]"> <!-- Account for fixed header + filter bar -->
+<!-- Filter/Sort Bar -->
+<div class="bg-white border-b border-surface-container-high sticky top-14 z-40">
+<div class="flex items-center justify-between px-margin-mobile py-2 overflow-x-auto no-scrollbar gap-2">
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-full border border-primary text-primary bg-primary-fixed font-label-sm text-label-sm whitespace-nowrap">
+                    Relevance
+                    <span class="material-symbols-outlined text-[16px]" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</button>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-full border border-surface-variant bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap">
+                    Latest
+                </button>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-full border border-surface-variant bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap">
+                    Top Sales
+                </button>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-full border border-surface-variant bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap">
+                    Price
+                    <div class="flex flex-col -space-y-1">
+<span class="material-symbols-outlined text-[10px]" data-icon="arrow_drop_up">arrow_drop_up</span>
+<span class="material-symbols-outlined text-[10px]" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+</button>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-full border border-surface-variant bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap">
+<span class="material-symbols-outlined text-[14px]" data-icon="tune">tune</span>
+                    Filter
+                </button>
+</div>
+</div>
+<!-- Connection Error Banner (Hidden by default, shown for demonstration) -->
+<div class="bg-error-container px-margin-mobile py-2 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[18px]" data-icon="wifi_off">wifi_off</span>
+<span class="font-body-md text-body-md text-on-error-container">Slow connection detected. Results may be outdated.</span>
+</div>
+<button class="text-error font-label-sm text-label-sm font-semibold">Retry</button>
+</div>
+<!-- Product Grid -->
+<div class="p-margin-mobile">
+<div class="grid grid-cols-2 gap-gutter">
+<!-- Product Card 1 (Mall) -->
+<div class="bg-white rounded border border-surface-variant flex flex-col relative overflow-hidden">
+<div class="absolute top-0 left-0 z-10 bg-primary text-white font-caption text-[8px] font-bold px-1.5 py-0.5 rounded-br uppercase tracking-wider flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[10px]" data-icon="verified">verified</span>
+                        Mall
+                    </div>
+<div class="aspect-square bg-surface-container-low relative">
+<img alt="White true wireless earbuds in charging case on clean background" class="w-full h-full object-cover" data-alt="White true wireless earbuds in charging case on clean minimal background, bright lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATrdyjJwjy1ab3kM1sffwFh3fXdbzy3eFJ40FTWwkA0CNJ4qJSgr1jDfZKzEuzLxqnJyjPz6Q2pgoewnqSbF0VIzlkTH6F9QwObPJivHiHEatPD9xWYP3Ozh7FdscSsGp43VX9VzPyjJp5mQR-Waw47qeVM88VIF661aMNz09TIyuS64GhQapBRUOZt3jglMqRfykXatpUpWbd047FZom4WGSx0pY6suTQy9Y4DaKIwN5OC4-KbIagyp7Vdf_ua67Ozauc6u8c99E"/>
+</div>
+<div class="p-2 flex flex-col flex-1">
+<h3 class="font-body-md text-body-md text-on-surface line-clamp-2 leading-snug mb-1">Premium Noise Cancelling Wireless Earbuds Pro</h3>
+<div class="flex items-center gap-1 mb-2">
+<span class="px-1 py-[2px] bg-secondary-fixed text-on-secondary-fixed text-[8px] font-bold uppercase rounded-sm whitespace-nowrap">Authenticity Verified</span>
+</div>
+<div class="mt-auto">
+<div class="font-price-lg text-price-lg text-primary">$129.00</div>
+<div class="flex items-center justify-between mt-1">
+<div class="flex items-center text-secondary-container">
+<span class="material-symbols-outlined text-[12px]" data-icon="star" data-weight="fill">star</span>
+<span class="font-caption text-caption text-on-surface-variant ml-0.5">4.9</span>
+</div>
+<span class="font-caption text-caption text-outline">10k+ sold</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 2 (Mall) -->
+<div class="bg-white rounded border border-surface-variant flex flex-col relative overflow-hidden">
+<div class="absolute top-0 left-0 z-10 bg-primary text-white font-caption text-[8px] font-bold px-1.5 py-0.5 rounded-br uppercase tracking-wider flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[10px]" data-icon="verified">verified</span>
+                        Mall
+                    </div>
+<div class="aspect-square bg-surface-container-low relative">
+<img alt="Black sleek wireless earbuds resting on dark surface" class="w-full h-full object-cover" data-alt="Black sleek wireless earbuds resting on dark modern surface, dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYkkV2k-hBXTvpP0L1WwBkgEEn5U7AGqLjFXA26hn9BDdgZC2xmVcrsANP8O4U2c4S81tqFBJ8-unxzJ5chfk0fVZxEkOqNykxBZO7A3C52aKFoass9sfe70PU7wb5CkWtZoW3nU49mXRoe8K3od-u8FdTH4VxOT2WQ09HpG_2QjlJJuTY-BnMQvKtoDGSIBFsUHjRXht9nBe2hsWBSVNF_IkEesGlP3skym5ACk6v79XXQ8PTaiUu8hbPFYrobYOJ2kHVvFrE10E"/>
+</div>
+<div class="p-2 flex flex-col flex-1">
+<h3 class="font-body-md text-body-md text-on-surface line-clamp-2 leading-snug mb-1">BassBoost True Wireless In-Ear Monitors</h3>
+<div class="flex items-center gap-1 mb-2">
+<span class="px-1 py-[2px] bg-secondary-fixed text-on-secondary-fixed text-[8px] font-bold uppercase rounded-sm whitespace-nowrap">Authenticity Verified</span>
+</div>
+<div class="mt-auto">
+<div class="font-price-lg text-price-lg text-primary">$89.50</div>
+<div class="flex items-center gap-1">
+<span class="font-caption text-[10px] text-outline line-through">$120.00</span>
+<span class="font-caption text-[10px] text-primary font-bold">-25%</span>
+</div>
+<div class="flex items-center justify-between mt-1">
+<div class="flex items-center text-secondary-container">
+<span class="material-symbols-outlined text-[12px]" data-icon="star" data-weight="fill">star</span>
+<span class="font-caption text-caption text-on-surface-variant ml-0.5">4.8</span>
+</div>
+<span class="font-caption text-caption text-outline">5.2k sold</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Progressive Disclosure Area -->
+<div class="col-span-2 mt-2 mb-4 bg-surface-container-lowest border border-surface-variant rounded-lg p-3 shadow-sm">
+<div class="flex justify-between items-center mb-2">
+<span class="font-h3 text-h3 text-on-surface">View More Like This</span>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
+<!-- Mini Card 1 -->
+<div class="min-w-[100px] border border-surface-container-high rounded bg-white flex flex-col">
+<div class="h-[100px] bg-surface-container-low w-full">
+<img alt="Minimalist white earbuds" class="w-full h-full object-cover rounded-t" data-alt="Minimalist white earbuds on soft gradient background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4gsQgxeboIz5INMbH8vanNRmJekPmUyGJbOvkBwYd2DDTeKbKGX8_ituKSPfT0xaxJkWPYsKmNskUS8KcakiqT3UFn6R2Jop6PNvW4GeiH7dQLi2sXe5AW73FLf63dnKc06OdZSibT_nMmvJagkkIPwgwbHvcVHc9_In3hVLv-lHzOVZZhNM8sUHSseutNEc5bSCB4ny6fhY3spqla2-P0J2Dm7wnvq_1xPJpW550V4fHQBFiCI6Mft-g13BphEDx2a7O-hwh4Ts"/>
+</div>
+<div class="p-1.5 text-center">
+<div class="font-body-md text-[12px] font-semibold text-primary">$45.00</div>
+</div>
+</div>
+<!-- Mini Card 2 -->
+<div class="min-w-[100px] border border-surface-container-high rounded bg-white flex flex-col">
+<div class="h-[100px] bg-surface-container-low w-full relative">
+<img alt="Sport yellow earbuds" class="w-full h-full object-cover rounded-t" data-alt="Sport yellow earbuds on textured athletic background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjRdMadOaGcVLn8PYB2y_DIyErBJQjBJeKGsZ8_gUcs2KaBK7Xpud-PcUZ1_DyzaLi8hWBA_OIsLIahGwvMYlX4gDH4wCxR454txC1JcUGnbhT-Xc6cOJQXXyL7oUG08EtLtPgrwR4GUxRNsTOkFkCUPOhPlZxiHGGvYYxMZHU97s1WNpu9ldPKpmy3evWaPfHJ7Vf9PxApTbdUaQ_uM9Tp2ivqh3BqFF55uU96VNYaPilha1FnJNneLvMRZdHae_ahAa4KXe5kf8"/>
+</div>
+<div class="p-1.5 text-center">
+<div class="font-body-md text-[12px] font-semibold text-primary">$59.99</div>
+</div>
+</div>
+<!-- Mini Card 3 -->
+<div class="min-w-[100px] border border-surface-container-high rounded bg-white flex flex-col">
+<div class="h-[100px] bg-surface-container-low w-full">
+<img alt="Rose gold earbuds case" class="w-full h-full object-cover rounded-t" data-alt="Rose gold earbuds case with soft pastel lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8g-5o6wtjbEPKp6Kr5AiL1rVqcr-XNh0z6EozSkF1w1egpL6D601IMIff8Bjy7b8QFvqjJtiKU5V-dgL6AMjsDYS_mpsoES7LDrDmwwLJsa3RmqNP3SbwaRcmx3HAz6h6YIBFGW3WZxFpIqOqpvVOPamnSXw3eD-I7s_sAFhc7VWzgmgeb6OZRA87z5qxt5NKhTaYFnsxDqh-wNDXnCBPLF2bgxnFKBJQYyatIdgxjO5XhKsW_NopKWVaqqq_0Hdf3hw-ipFel3w"/>
+</div>
+<div class="p-1.5 text-center">
+<div class="font-body-md text-[12px] font-semibold text-primary">$75.00</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-white rounded border border-surface-variant flex flex-col relative overflow-hidden">
+<div class="absolute top-0 left-0 z-10 bg-surface-tint text-white font-caption text-[8px] font-bold px-1.5 py-0.5 rounded-br uppercase tracking-wider">
+                        Preferred
+                    </div>
+<div class="aspect-square bg-surface-container-low relative">
+<img alt="Tech gadgets on desk including earbuds" class="w-full h-full object-cover" data-alt="Overhead shot of desk with tech gadgets including white earbuds" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3372K2bmBeeFp0eQIzvllf1djWeGdkaZopsJc81G2yUOWctxFfXJH5FI39A-9e-pk_FqoqtpJpeOoKrumF1wF0qMnYP3MN_Co38lhb5gHe6yxBQpgonpVssN5rmbiXPhqWuqj4f7Hm-duzKf3GM7gfscLa5oBilJ8rNw95IDOfrTECBUBvHAorA1hMP-o2hUIGeVq9uXobEdGtvmzpOlyVpCW8f3JW_pN2LJJuklPjFTg2wEpVctTSQHfPFP4kBE0-QTIK6Vwv6s"/>
+</div>
+<div class="p-2 flex flex-col flex-1">
+<h3 class="font-body-md text-body-md text-on-surface line-clamp-2 leading-snug mb-1">Generic Bluetooth 5.0 Wireless Earphones</h3>
+<div class="mt-auto">
+<div class="font-price-lg text-price-lg text-primary">$15.99</div>
+<div class="flex items-center justify-between mt-1">
+<div class="flex items-center text-secondary-container">
+<span class="material-symbols-outlined text-[12px]" data-icon="star" data-weight="fill">star</span>
+<span class="font-caption text-caption text-on-surface-variant ml-0.5">4.5</span>
+</div>
+<span class="font-caption text-caption text-outline">25k+ sold</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="bg-white rounded border border-surface-variant flex flex-col relative overflow-hidden">
+<div class="aspect-square bg-surface-container-low relative">
+<img alt="Blue wireless earbuds close up" class="w-full h-full object-cover" data-alt="Macro shot of blue metallic wireless earbuds with water droplets" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJhgM49C5E4zUW-GD1BI216DbdrjZBlpDIkkosBLj4rIrdXZcl1ccFilK7YA23JuCIuivKrdnVG5J_zXvR_nFzgX6C2ONJuzcgeYKiiB757NQf6axCYnCFQf494g47fHUp6hYrI0vzMT_R40_ezALp6RUljxaeb6FxWGYe0R_gTOjaktcnHYvudKFcbBT4AQ5xIfcl8ZNtcOXVpevcGkHaHUVLIhjdcjcIREVE9CE7onorJzCMOTuDPyN7KKungRTwJhTFrGfSbdU"/>
+</div>
+<div class="p-2 flex flex-col flex-1">
+<h3 class="font-body-md text-body-md text-on-surface line-clamp-2 leading-snug mb-1">Waterproof Sport Earbuds IPX7</h3>
+<div class="mt-auto">
+<div class="font-price-lg text-price-lg text-primary">$34.50</div>
+<div class="flex items-center justify-between mt-1">
+<div class="flex items-center text-secondary-container">
+<span class="material-symbols-outlined text-[12px]" data-icon="star" data-weight="fill">star</span>
+<span class="font-caption text-caption text-on-surface-variant ml-0.5">4.7</span>
+</div>
+<span class="font-caption text-caption text-outline">1.2k sold</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Loading Indicator -->
+<div class="py-4 flex justify-center">
+<span class="material-symbols-outlined text-outline animate-spin" data-icon="progress_activity">progress_activity</span>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-white dark:bg-gray-950 font-['Plus_Jakarta_Sans'] text-[10px] font-medium docked full-width bottom-0 border-t border-t border-gray-100 dark:border-gray-800 shadow-[0_-2px_10px_rgba(0,0,0,0.05)] fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 pb-safe bg-white/95 backdrop-blur-md md:hidden">
+<a class="flex flex-col items-center justify-center text-orange-600 dark:text-orange-500 hover:opacity-80 active:scale-95 transition-transform w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span>Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 dark:text-gray-400 hover:opacity-80 active:scale-95 transition-transform w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="storefront">storefront</span>
+<span>Mall</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 dark:text-gray-400 hover:opacity-80 active:scale-95 transition-transform w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="live_tv">live_tv</span>
+<span>Live</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 dark:text-gray-400 hover:opacity-80 active:scale-95 transition-transform w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="notifications">notifications</span>
+<span>Notifications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 dark:text-gray-400 hover:opacity-80 active:scale-95 transition-transform w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span>Me</span>
+</a>
+</nav>
+</body></html>

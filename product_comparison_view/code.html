@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Compare</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f3f3f3",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dadada",
+                        "primary": "#b22204",
+                        "secondary-container": "#f9b500",
+                        "on-tertiary-fixed": "#00201c",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#ffdad3",
+                        "inverse-on-surface": "#f1f1f1",
+                        "surface-tint": "#b62506",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#5b403b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1a1c1c",
+                        "on-primary-fixed": "#3e0500",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary-fixed-dim": "#ffbb0c",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f9f9f9",
+                        "outline-variant": "#e3beb6",
+                        "on-secondary-fixed": "#271900",
+                        "inverse-primary": "#ffb4a4",
+                        "surface-container": "#eeeeee",
+                        "secondary-fixed": "#ffdea6",
+                        "background": "#f9f9f9",
+                        "secondary": "#7b5800",
+                        "tertiary-fixed": "#81f6e3",
+                        "on-primary-fixed-variant": "#8d1600",
+                        "inverse-surface": "#2f3131",
+                        "tertiary-fixed-dim": "#63dac7",
+                        "surface-variant": "#e2e2e2",
+                        "outline": "#8f7069",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#684a00",
+                        "on-primary-container": "#fffbff",
+                        "on-background": "#1a1c1c",
+                        "surface": "#f9f9f9",
+                        "on-error": "#ffffff",
+                        "primary-container": "#d63c1e",
+                        "tertiary-container": "#008375",
+                        "primary-fixed-dim": "#ffb4a4",
+                        "on-tertiary-fixed-variant": "#005047",
+                        "tertiary": "#00685c",
+                        "on-tertiary-container": "#f4fffb",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary-fixed-variant": "#5d4200"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "12px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "unit": "4px",
+                        "xs": "4px",
+                        "gutter": "10px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "price-lg": ["Plus Jakarta Sans"],
+                        "h2": ["Plus Jakarta Sans"],
+                        "h1": ["Plus Jakarta Sans"],
+                        "caption": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "h3": ["16px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "22px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "price-lg": ["20px", { "lineHeight": "20px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "h2": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+                        "h1": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "caption": ["10px", { "lineHeight": "12px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen text-on-background font-body-md antialiased pb-lg">
+<!-- TopAppBar (Shared Component) -->
+<header class="bg-white dark:bg-gray-950 text-orange-600 dark:text-orange-500 font-['Plus_Jakarta_Sans'] antialiased docked full-width top-0 border-b border-gray-100 dark:border-gray-800 shadow-sm fixed top-0 left-0 w-full z-50 flex items-center px-3 py-2 h-14 justify-between transition-colors duration-200 ease-in-out">
+<div class="flex items-center">
+<button class="p-2 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+</div>
+<div class="text-orange-600 dark:text-orange-500 font-bold text-lg text-center flex-1">
+            Compare
+        </div>
+<div class="flex items-center">
+<button class="p-2 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">photo_camera</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-[72px] px-margin-mobile">
+<!-- Sticky Product Header (Compare 2 Items) -->
+<div class="sticky top-14 z-40 bg-background pt-sm pb-md border-b border-surface-variant flex gap-gutter">
+<!-- Product 1 -->
+<div class="flex-1 flex flex-col bg-surface-container-lowest rounded-xl p-sm shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-surface-variant">
+<div class="relative w-full aspect-square bg-surface-container-low rounded-lg overflow-hidden mb-sm">
+<img alt="Camera" class="w-full h-full object-cover" data-alt="high-end mirrorless digital camera body on clean white background with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT9aQjxSxA_NjIDbzE13A9UumaMLvpnEQUrsV9MzOrA-xuAZUEvyRXO_6zaGijAwR-quAqNFUb-CNSQ6zX01iIATZeKBXGy7pvXAAurQlEyaL_5JYQilg7jjWBK9HQhVXVhpXAiSiW2YVnnM3RvUNbzKT8KO62DRzHNcGLOhJoutr6qYt8xsC9aO-15ortoUUMRPB8MJSJFomGlwLyQET5Kl7w3znj2zZRy5fiNy43UryoG9rGd3T7oOXdt3v3KKg8XmUqJFKqR8o"/>
+<button class="absolute top-1 right-1 p-1 bg-surface-container-lowest/80 backdrop-blur rounded-full text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex-1 flex flex-col">
+<h2 class="font-body-md text-body-md text-on-surface line-clamp-2 mb-xs">Sony Alpha a7 IV Full-Frame Mirrorless</h2>
+<div class="font-price-lg text-price-lg text-primary mt-auto">$2,498.00</div>
+<!-- Promo Tag -->
+<div class="mt-xs mb-sm self-start inline-flex items-center bg-primary-fixed text-on-primary-fixed font-caption text-caption px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[12px] mr-1" style="font-variation-settings: 'FILL' 1;">sell</span>
+                        10% Cashback
+                    </div>
+<button class="w-full bg-primary text-on-primary font-label-sm text-label-sm py-2 rounded-xl flex items-center justify-center gap-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[16px]">shopping_cart</span>
+                        Add to Cart
+                    </button>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="flex-1 flex flex-col bg-surface-container-lowest rounded-xl p-sm shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-surface-variant">
+<div class="relative w-full aspect-square bg-surface-container-low rounded-lg overflow-hidden mb-sm">
+<img alt="Camera" class="w-full h-full object-cover" data-alt="professional DSLR camera with attached lens on clean white background with sharp shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVsszaW3Xk1sULovgMOETHwzCfXbYcy_qPj6n8D_md6B1GO2hUwHRMzae2EtmR05oEkaZBaPGFgiBA30yU59pBg-oxSeZilRIFtawx9OxDgNDaBbNiqET3KZBE6A0V-L1jAGc1WL6vmpwnp3NNCHXn98NiuKriuX_qJ8LdJ3ev0WW2nQm3LB0jqryFrf2iOlpLie-T74CkCkT6ef1HLyoMbDug44Ty4Cpgt3EgLAvt_n13EiTFd5k_VBP4409a_1Fu54D0Z9hn5Pc"/>
+<button class="absolute top-1 right-1 p-1 bg-surface-container-lowest/80 backdrop-blur rounded-full text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex-1 flex flex-col">
+<h2 class="font-body-md text-body-md text-on-surface line-clamp-2 mb-xs">Canon EOS R6 Mark II Mirrorless Camera</h2>
+<div class="font-price-lg text-price-lg text-primary mt-auto">$2,499.00</div>
+<!-- Promo Tag -->
+<div class="mt-xs mb-sm self-start inline-flex items-center border border-primary text-primary font-caption text-caption px-2 py-1 rounded bg-white">
+                        Free Shipping
+                    </div>
+<button class="w-full bg-primary text-on-primary font-label-sm text-label-sm py-2 rounded-xl flex items-center justify-center gap-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[16px]">shopping_cart</span>
+                        Add to Cart
+                    </button>
+</div>
+</div>
+</div>
+<!-- Comparison Details List -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-variant mt-md overflow-hidden">
+<!-- Spec Row: Rating -->
+<div class="grid grid-cols-[80px_1fr_1fr] md:grid-cols-[120px_1fr_1fr] gap-unit border-b border-surface-variant py-md px-sm items-center bg-surface-bright">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Rating</div>
+<div class="flex items-center flex-wrap gap-1 px-1">
+<div class="flex text-secondary-container">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">4.9</span>
+<span class="font-caption text-caption text-on-surface-variant">(1.2k)</span>
+</div>
+<div class="flex items-center flex-wrap gap-1 px-1 border-l border-surface-variant pl-2">
+<div class="flex text-secondary-container">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">4.8</span>
+<span class="font-caption text-caption text-on-surface-variant">(850)</span>
+</div>
+</div>
+<!-- Spec Row: Sensor -->
+<div class="grid grid-cols-[80px_1fr_1fr] md:grid-cols-[120px_1fr_1fr] gap-unit border-b border-surface-variant py-md px-sm items-start">
+<div class="font-label-sm text-label-sm text-on-surface-variant pt-1">Sensor</div>
+<div class="font-body-md text-body-md text-on-surface px-1">
+                    33MP Full-Frame Exmor R CMOS
+                </div>
+<div class="font-body-md text-body-md text-on-surface px-1 border-l border-surface-variant pl-2">
+                    24.2MP Full-Frame CMOS
+                </div>
+</div>
+<!-- Spec Row: Video -->
+<div class="grid grid-cols-[80px_1fr_1fr] md:grid-cols-[120px_1fr_1fr] gap-unit border-b border-surface-variant py-md px-sm items-start bg-surface-bright">
+<div class="font-label-sm text-label-sm text-on-surface-variant pt-1">Video</div>
+<div class="font-body-md text-body-md text-on-surface px-1">
+                    4K 60p, 10-Bit 4:2:2
+                </div>
+<div class="font-body-md text-body-md text-on-surface px-1 border-l border-surface-variant pl-2">
+                    4K 60p, 10-Bit 4:2:2
+                </div>
+</div>
+<!-- Spec Row: Autofocus -->
+<div class="grid grid-cols-[80px_1fr_1fr] md:grid-cols-[120px_1fr_1fr] gap-unit py-md px-sm items-start">
+<div class="font-label-sm text-label-sm text-on-surface-variant pt-1">Autofocus</div>
+<div class="font-body-md text-body-md text-on-surface px-1">
+                    Real-time Eye AF (Human/Animal/Bird)
+                </div>
+<div class="font-body-md text-body-md text-on-surface px-1 border-l border-surface-variant pl-2">
+                    Dual Pixel CMOS AF II
+                </div>
+</div>
+</div>
+<!-- Progressive Disclosure Action -->
+<button class="w-full mt-md bg-inverse-on-surface text-on-surface font-label-sm text-label-sm py-3 rounded-xl border border-surface-variant hover:bg-surface-container-low transition-colors flex items-center justify-center gap-2">
+            View Full Specifications
+            <span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+<!-- Trust Indicators Section -->
+<div class="mt-lg pt-md border-t border-surface-variant flex justify-around items-center opacity-70">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-[24px] text-on-surface-variant">verified_user</span>
+<span class="font-caption text-caption text-on-surface-variant text-center">Shopee Guarantee</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-[24px] text-on-surface-variant">local_shipping</span>
+<span class="font-caption text-caption text-on-surface-variant text-center">Fast Delivery</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-[24px] text-on-surface-variant">assignment_return</span>
+<span class="font-caption text-caption text-on-surface-variant text-center">15 Days Return</span>
+</div>
+</div>
+</main>
+</body></html>

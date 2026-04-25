@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile Screen</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container": "#eeeeee",
+                      "error": "#ba1a1a",
+                      "background": "#f9f9f9",
+                      "tertiary-fixed-dim": "#63dac7",
+                      "on-tertiary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "tertiary": "#00685c",
+                      "tertiary-container": "#008375",
+                      "on-secondary": "#ffffff",
+                      "on-surface-variant": "#5b403b",
+                      "on-tertiary-container": "#f4fffb",
+                      "primary-fixed": "#ffdad3",
+                      "surface-tint": "#b62506",
+                      "inverse-surface": "#2f3131",
+                      "on-surface": "#1a1c1c",
+                      "surface-dim": "#dadada",
+                      "primary-container": "#d63c1e",
+                      "inverse-on-surface": "#f1f1f1",
+                      "on-error-container": "#93000a",
+                      "surface-container-high": "#e8e8e8",
+                      "on-primary-container": "#fffbff",
+                      "on-secondary-fixed": "#271900",
+                      "primary": "#b22204",
+                      "on-primary": "#ffffff",
+                      "on-background": "#1a1c1c",
+                      "on-tertiary-fixed-variant": "#005047",
+                      "on-secondary-container": "#684a00",
+                      "secondary-container": "#f9b500",
+                      "inverse-primary": "#ffb4a4",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary": "#7b5800",
+                      "outline": "#8f7069",
+                      "surface-bright": "#f9f9f9",
+                      "primary-fixed-dim": "#ffb4a4",
+                      "on-secondary-fixed-variant": "#5d4200",
+                      "surface": "#f9f9f9",
+                      "surface-container-highest": "#e2e2e2",
+                      "secondary-fixed-dim": "#ffbb0c",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed": "#3e0500",
+                      "on-primary-fixed-variant": "#8d1600",
+                      "tertiary-fixed": "#81f6e3",
+                      "outline-variant": "#e3beb6",
+                      "surface-container-low": "#f3f3f3",
+                      "secondary-fixed": "#ffdea6",
+                      "on-tertiary-fixed": "#00201c",
+                      "surface-variant": "#e2e2e2"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "md": "16px",
+                      "margin-mobile": "12px",
+                      "lg": "24px",
+                      "unit": "4px",
+                      "xs": "4px",
+                      "gutter": "10px",
+                      "sm": "8px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "h1": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "h3": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "price-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "h2": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "caption": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "h1": [
+                              "22px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "h3": [
+                              "16px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "price-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "h2": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "caption": [
+                              "10px",
+                              {
+                                      "lineHeight": "12px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "22px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container font-body-md text-body-md text-on-surface antialiased pb-24">
+<!-- Header / Profile Canvas -->
+<header class="bg-gradient-to-b from-primary to-primary-container text-on-primary pt-12 pb-6 px-margin-mobile relative overflow-hidden">
+<!-- Decorative bg blur -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+<!-- Top Actions -->
+<div class="flex justify-end items-center gap-5 mb-6 relative z-10">
+<button class="hover:bg-white/20 p-1.5 rounded-full transition-colors">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 0;">settings</span>
+</button>
+<button class="hover:bg-white/20 p-1.5 rounded-full transition-colors relative">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 0;">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2.5 h-2.5 bg-secondary-container rounded-full border border-primary"></span>
+</button>
+<button class="hover:bg-white/20 p-1.5 rounded-full transition-colors">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 0;">chat</span>
+</button>
+</div>
+<!-- User Info -->
+<div class="flex items-center gap-4 relative z-10">
+<div class="w-16 h-16 rounded-full border-2 border-white/30 bg-surface-container-highest overflow-hidden shrink-0">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="Portrait of a smiling young woman with natural makeup in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv7QWlhsmeH1CSWdBNb4Yt_DVWJ4pFYLR3Ht0FAmYNbmijpFFgLk7bn0cEb2ZCpIcWqdMum93zD6Stdt_QUU72rDno5vsI8aaFuInC-SBfbsyG-jFqe8jVZ8GwZAMlkXQvads9kPi2lETgdgkp-cC-jsdrS4iF9I3pxctjOjcc-cUcutlHke5hCNUKszEDviukqglzRb_vq193XlyX9wuwDVpZNq6BG0oNGRLqEerZv6wvIzZHUO9R7a1DZl-KlvUep0Tem-znckg"/>
+</div>
+<div class="flex-1">
+<h1 class="font-h2 text-h2 text-on-primary mb-0.5">Jane Doe</h1>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded-full font-caption text-caption text-on-primary border border-white/10">
+<span class="material-symbols-outlined text-[12px] mr-1" style="font-variation-settings: 'FILL' 1;">star</span> Silver Member
+                    </span>
+<span class="inline-flex items-center font-caption text-caption text-on-primary/80">
+                        Followers 124
+                    </span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Grid -->
+<main class="flex flex-col gap-sm">
+<!-- My Purchases Section -->
+<section class="bg-surface-container-lowest px-margin-mobile py-4 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+<div class="flex justify-between items-center mb-4 pb-3 border-b border-surface-container-high">
+<h2 class="font-h3 text-h3 text-on-surface">My Purchases</h2>
+<a class="font-label-sm text-label-sm text-on-surface-variant flex items-center hover:text-primary transition-colors" href="#">
+                    View Purchase History <span class="material-symbols-outlined text-[16px] ml-0.5">chevron_right</span>
+</a>
+</div>
+<div class="flex justify-between items-start px-2">
+<button class="flex flex-col items-center gap-2 group relative">
+<div class="relative">
+<span class="material-symbols-outlined text-[28px] text-on-surface-variant group-hover:text-primary transition-colors" style="font-variation-settings: 'FILL' 0;">account_balance_wallet</span>
+<span class="absolute -top-1 -right-1 bg-primary text-on-primary font-caption text-[8px] leading-none px-1.5 py-0.5 rounded-full border border-white">2</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant group-hover:text-primary transition-colors">To Pay</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<span class="material-symbols-outlined text-[28px] text-on-surface-variant group-hover:text-primary transition-colors" style="font-variation-settings: 'FILL' 0;">local_shipping</span>
+<span class="font-caption text-caption text-on-surface-variant group-hover:text-primary transition-colors">To Ship</span>
+</button>
+<button class="flex flex-col items-center gap-2 group relative">
+<div class="relative">
+<span class="material-symbols-outlined text-[28px] text-on-surface-variant group-hover:text-primary transition-colors" style="font-variation-settings: 'FILL' 0;">inventory_2</span>
+<span class="absolute -top-1 -right-1 bg-primary text-on-primary font-caption text-[8px] leading-none px-1.5 py-0.5 rounded-full border border-white">1</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant group-hover:text-primary transition-colors">To Receive</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<span class="material-symbols-outlined text-[28px] text-on-surface-variant group-hover:text-primary transition-colors" style="font-variation-settings: 'FILL' 0;">star_rate</span>
+<span class="font-caption text-caption text-on-surface-variant group-hover:text-primary transition-colors">To Rate</span>
+</button>
+</div>
+</section>
+<!-- My Wallet Bento Grid -->
+<section class="bg-surface-container-lowest px-margin-mobile py-4 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+<h2 class="font-h3 text-h3 text-on-surface mb-3">My Wallet</h2>
+<div class="grid grid-cols-2 gap-gutter">
+<!-- ShopeePay Primary Card -->
+<div class="bg-surface-bright border border-surface-container-high rounded-xl p-3 flex flex-col justify-between hover:border-primary-fixed-dim transition-colors cursor-pointer">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm text-on-surface">ShopeePay</span>
+</div>
+<div>
+<div class="font-price-lg text-price-lg text-primary mb-1">Rp 150.000</div>
+<div class="font-caption text-caption text-on-surface-variant flex items-center">
+                            Top Up <span class="material-symbols-outlined text-[12px] ml-0.5">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Secondary Cards Stack -->
+<div class="flex flex-col gap-gutter">
+<div class="bg-surface-bright border border-surface-container-high rounded-xl p-2.5 flex items-center justify-between hover:border-primary-fixed-dim transition-colors cursor-pointer flex-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface leading-tight">Coins</span>
+<span class="font-caption text-caption text-on-surface-variant">2.500</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-surface-dim">chevron_right</span>
+</div>
+<div class="bg-surface-bright border border-surface-container-high rounded-xl p-2.5 flex items-center justify-between hover:border-primary-fixed-dim transition-colors cursor-pointer flex-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">local_activity</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface leading-tight">Vouchers</span>
+<span class="font-caption text-caption text-on-surface-variant">4 available</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-surface-dim">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Utility List -->
+<section class="bg-surface-container-lowest shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+<div class="flex flex-col">
+<a class="flex items-center px-margin-mobile py-4 border-b border-surface-container-high hover:bg-surface-bright transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px] text-secondary mr-3" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="font-body-md text-body-md text-on-surface flex-1">Shopee Loyalty</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mr-1">Silver</span>
+<span class="material-symbols-outlined text-[20px] text-surface-dim">chevron_right</span>
+</a>
+<a class="flex items-center px-margin-mobile py-4 border-b border-surface-container-high hover:bg-surface-bright transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px] text-primary mr-3" style="font-variation-settings: 'FILL' 0;">thumb_up</span>
+<span class="font-body-md text-body-md text-on-surface flex-1">My Rating</span>
+<span class="material-symbols-outlined text-[20px] text-surface-dim">chevron_right</span>
+</a>
+<a class="flex items-center px-margin-mobile py-4 border-b border-surface-container-high hover:bg-surface-bright transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant mr-3" style="font-variation-settings: 'FILL' 0;">help</span>
+<span class="font-body-md text-body-md text-on-surface flex-1">Help Centre</span>
+<span class="material-symbols-outlined text-[20px] text-surface-dim">chevron_right</span>
+</a>
+<a class="flex items-center px-margin-mobile py-4 hover:bg-surface-bright transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px] text-tertiary-container mr-3" style="font-variation-settings: 'FILL' 0;">support_agent</span>
+<span class="font-body-md text-body-md text-on-surface flex-1">Chat with Shopee</span>
+<span class="material-symbols-outlined text-[20px] text-surface-dim">chevron_right</span>
+</a>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Generated from JSON) -->
+<nav class="fixed bottom-0 left-0 w-full h-16 z-50 flex justify-around items-center pb-safe bg-white/95 backdrop-blur-md bg-white dark:bg-zinc-950 docked full-width bottom-0 rounded-none border-t border-t border-zinc-100 dark:border-zinc-800 shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
+<a class="hover:bg-zinc-50 dark:hover:bg-zinc-900 active:scale-95 transition-transform duration-150 flex flex-col items-center justify-center text-zinc-500 dark:text-zinc-400 font-['Plus_Jakarta_Sans'] text-[10px] font-medium w-16 h-full rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">home</span>
+<span>Home</span>
+</a>
+<a class="hover:bg-zinc-50 dark:hover:bg-zinc-900 active:scale-95 transition-transform duration-150 flex flex-col items-center justify-center text-zinc-500 dark:text-zinc-400 font-['Plus_Jakarta_Sans'] text-[10px] font-medium w-16 h-full rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">dynamic_feed</span>
+<span>Feed</span>
+</a>
+<a class="hover:bg-zinc-50 dark:hover:bg-zinc-900 active:scale-95 transition-transform duration-150 flex flex-col items-center justify-center text-zinc-500 dark:text-zinc-400 font-['Plus_Jakarta_Sans'] text-[10px] font-medium w-16 h-full rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">live_tv</span>
+<span>Live</span>
+</a>
+<a class="hover:bg-zinc-50 dark:hover:bg-zinc-900 active:scale-95 transition-transform duration-150 flex flex-col items-center justify-center text-zinc-500 dark:text-zinc-400 font-['Plus_Jakarta_Sans'] text-[10px] font-medium w-16 h-full rounded-lg relative" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">notifications</span>
+<span class="absolute top-2 right-4 w-2 h-2 bg-[#EE4D2D] rounded-full border border-white"></span>
+<span>Notifications</span>
+</a>
+<a class="hover:bg-zinc-50 dark:hover:bg-zinc-900 active:scale-95 transition-transform duration-150 flex flex-col items-center justify-center text-[#EE4D2D] dark:text-[#FF5733] font-['Plus_Jakarta_Sans'] text-[10px] font-medium w-16 h-full rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]" style="font-variation-settings: 'FILL' 1;">person</span>
+<span>Me</span>
+</a>
+</nav>
+</body></html>

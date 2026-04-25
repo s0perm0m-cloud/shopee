@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shopee Retention Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f3f3f3",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dadada",
+                        "primary": "#b22204",
+                        "secondary-container": "#f9b500",
+                        "on-tertiary-fixed": "#00201c",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#ffdad3",
+                        "inverse-on-surface": "#f1f1f1",
+                        "surface-tint": "#b62506",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#5b403b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1a1c1c",
+                        "on-primary-fixed": "#3e0500",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary-fixed-dim": "#ffbb0c",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f9f9f9",
+                        "outline-variant": "#e3beb6",
+                        "on-secondary-fixed": "#271900",
+                        "inverse-primary": "#ffb4a4",
+                        "surface-container": "#eeeeee",
+                        "secondary-fixed": "#ffdea6",
+                        "background": "#f9f9f9",
+                        "secondary": "#7b5800",
+                        "tertiary-fixed": "#81f6e3",
+                        "on-primary-fixed-variant": "#8d1600",
+                        "inverse-surface": "#2f3131",
+                        "tertiary-fixed-dim": "#63dac7",
+                        "surface-variant": "#e2e2e2",
+                        "outline": "#8f7069",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#684a00",
+                        "on-primary-container": "#fffbff",
+                        "on-background": "#1a1c1c",
+                        "surface": "#f9f9f9",
+                        "on-error": "#ffffff",
+                        "primary-container": "#d63c1e",
+                        "tertiary-container": "#008375",
+                        "primary-fixed-dim": "#ffb4a4",
+                        "on-tertiary-fixed-variant": "#005047",
+                        "tertiary": "#00685c",
+                        "on-tertiary-container": "#f4fffb",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary-fixed-variant": "#5d4200"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "12px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "unit": "4px",
+                        "xs": "4px",
+                        "gutter": "10px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "price-lg": ["Plus Jakarta Sans"],
+                        "h2": ["Plus Jakarta Sans"],
+                        "h1": ["Plus Jakarta Sans"],
+                        "caption": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "h3": ["16px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "22px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "price-lg": ["20px", { "lineHeight": "20px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "h2": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+                        "h1": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "caption": ["10px", { "lineHeight": "12px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background pb-20">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-gray-950 text-orange-600 dark:text-orange-500 font-['Plus_Jakarta_Sans'] antialiased docked full-width top-0 border-b border-gray-100 dark:border-gray-800 shadow-sm transition-colors duration-200 ease-in-out fixed top-0 left-0 w-full z-50 flex items-center px-3 py-2 h-14">
+<div class="flex-1 flex items-center bg-[#F0F0F0] rounded h-9 px-3">
+<span class="material-symbols-outlined text-gray-500 text-[20px] mr-2" style="font-variation-settings: 'FILL' 0;">search</span>
+<input class="bg-transparent border-none outline-none text-body-md font-body-md text-on-surface w-full placeholder-gray-400" placeholder="Search..." type="text"/>
+<span class="material-symbols-outlined text-gray-500 text-[20px] ml-2" style="font-variation-settings: 'FILL' 0;">photo_camera</span>
+</div>
+<div class="ml-3 flex gap-2">
+<button class="p-1 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900 rounded-full transition-colors">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+<button class="p-1 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900 rounded-full transition-colors">
+<span class="material-symbols-outlined">chat</span>
+</button>
+</div>
+</header>
+<main class="pt-16 px-margin-mobile">
+<!-- Welcome & Loyalty Header -->
+<section class="mt-md mb-lg">
+<h1 class="text-h1 font-h1 text-on-surface mb-unit">Welcome back, Alex!</h1>
+<p class="text-body-md font-body-md text-on-surface-variant">Ready for some well-deserved study breaks?</p>
+<!-- Usage-based Loyalty Progress Bar -->
+<div class="mt-md bg-white p-md rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-surface-container-high relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-10 -mt-10 blur-xl"></div>
+<div class="flex justify-between items-center mb-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<h2 class="text-h3 font-h3 text-on-surface">Gold Member</h2>
+</div>
+<span class="text-label-sm font-label-sm text-primary">Details</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 mt-sm mb-xs">
+<div class="bg-primary h-2 rounded-full w-[70%]" style="background: linear-gradient(90deg, #d63c1e 0%, #ffb4a4 100%);"></div>
+</div>
+<div class="flex justify-between mt-sm">
+<p class="text-caption font-caption text-on-surface-variant">3 purchases to Platinum</p>
+<p class="text-caption font-caption font-semibold text-primary">70% Complete</p>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="h-sm bg-[#F5F5F5] -mx-margin-mobile my-lg"></div>
+<!-- Personalised Weekly Deals Carousel -->
+<section class="mb-lg">
+<div class="flex justify-between items-end mb-md">
+<div>
+<h2 class="text-h2 font-h2 text-on-surface">Weekly Deals For You</h2>
+<p class="text-body-md font-body-md text-on-surface-variant mt-unit">Curated just for your study sessions</p>
+</div>
+<span class="text-label-sm font-label-sm text-primary">See all</span>
+</div>
+<div class="flex gap-gutter overflow-x-auto hide-scrollbar pb-xs">
+<!-- Deal Card 1 -->
+<div class="min-w-[160px] bg-white rounded-lg shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-surface-container-high overflow-hidden flex flex-col">
+<div class="relative w-full aspect-square bg-surface-container">
+<img alt="Sleek smartwatch on white background" class="w-full h-full object-cover" data-alt="close-up of a sleek modern smartwatch on a clean minimalist white background studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUpns68Hm3AHGXNbu1PCjOkzF7Hom33da55ADRmvZSufOwoBGvfYpl-FuFAq9lt8t66YugDsKpEUVXt6NPKhkKfA7Kj1BdoL0hpTydDifq4Lo1tNtj-75tEcPp5cWdwIzYCitoEB3eIwCvh0R33xzJsLFZYE2XA7IZctUHQRY3QZVey8oFGzo3B0-IrZiKbDfRxNHoe2DIoEALw5miTCTxJNqeLeu9sX4AAk5ZyfhK6j2Bz4XSEDkzYqoPWp0oSoSMDNWsaD3Ijx8"/>
+<div class="absolute top-2 left-2 bg-secondary-container text-on-secondary-container text-caption font-caption px-2 py-1 rounded font-bold">-40%</div>
+</div>
+<div class="p-sm flex flex-col flex-grow justify-between">
+<div>
+<p class="text-body-md font-body-md text-on-surface line-clamp-2 leading-tight mb-unit">Noise-Cancelling Headphones Pro</p>
+<div class="flex items-end gap-1 mb-xs">
+<span class="text-price-lg font-price-lg text-primary">$59.90</span>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary text-label-sm font-label-sm py-2 rounded font-bold mt-sm transition-opacity hover:opacity-90">Claim Deal</button>
+</div>
+</div>
+<!-- Deal Card 2 -->
+<div class="min-w-[160px] bg-white rounded-lg shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-surface-container-high overflow-hidden flex flex-col">
+<div class="relative w-full aspect-square bg-surface-container">
+<img alt="Ergonomic desk setup" class="w-full h-full object-cover" data-alt="modern ergonomic desk setup with laptop notebooks and soft lighting aesthetic workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDXZBHSsqu5aV2l1gmHC0Sl6RNDv9wMQKsUIRiXOWLZE8s8RxSepR9uxdST4SscP6tPWM4gkZP-jp_iLuUr59GgkdFeXXgfcNNKf1JK4JtcYwAC1EFZQUeuGUi1bhv2DxZ5jpaihPLOPbiR5zgeFgknnWoYcWqEE760kxijBznoAIeXB7vXCwwi5bagP9Uv0aFWVrGbrgJM7DXHp0uZi4UjYg0A5AFsZy0dIQDLxaFnWz8RyxEIjn9eAkWD7mGeAD9AJct-zfhi4Q"/>
+<div class="absolute top-2 left-2 bg-secondary-container text-on-secondary-container text-caption font-caption px-2 py-1 rounded font-bold">-25%</div>
+</div>
+<div class="p-sm flex flex-col flex-grow justify-between">
+<div>
+<p class="text-body-md font-body-md text-on-surface line-clamp-2 leading-tight mb-unit">Ergonomic Laptop Stand Aluminum</p>
+<div class="flex items-end gap-1 mb-xs">
+<span class="text-price-lg font-price-lg text-primary">$18.50</span>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary text-label-sm font-label-sm py-2 rounded font-bold mt-sm transition-opacity hover:opacity-90">Claim Deal</button>
+</div>
+</div>
+<!-- Deal Card 3 -->
+<div class="min-w-[160px] bg-white rounded-lg shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-surface-container-high overflow-hidden flex flex-col">
+<div class="relative w-full aspect-square bg-surface-container">
+<img alt="Iced coffee" class="w-full h-full object-cover" data-alt="refreshing iced coffee in a tall glass with condensation droplets and natural sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhH2LZJZ1dBYzfkB8J6Qf1VI_0mU0BD84NEjhP8dSqoDu3myaS_WzjFXYMFiYhWe2yyi-i9wokfjpP-KUb9T87oB-7LeBhf_U8Z6hOPtqZMkhswAinAfXZjjqsQ501LeyGUioPN4uBgsbUsJMK_n9bowKLdI-7eaMP7eff_m-TtqSKs92dji4YS7kfQvhNdkTH-e4GOjwv8OI9UnRRpWBnQCtZcLVzqu-F9q7CksaS_LdLjqpVWo96dQbSh_ymazt2es8fKokzLAs"/>
+<div class="absolute top-2 left-2 bg-secondary-container text-on-secondary-container text-caption font-caption px-2 py-1 rounded font-bold">B1G1</div>
+</div>
+<div class="p-sm flex flex-col flex-grow justify-between">
+<div>
+<p class="text-body-md font-body-md text-on-surface line-clamp-2 leading-tight mb-unit">Cold Brew Coffee Pack x12</p>
+<div class="flex items-end gap-1 mb-xs">
+<span class="text-price-lg font-price-lg text-primary">$22.00</span>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary text-label-sm font-label-sm py-2 rounded font-bold mt-sm transition-opacity hover:opacity-90">Claim Deal</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="h-sm bg-[#F5F5F5] -mx-margin-mobile my-lg"></div>
+<!-- Back Again? Shortcuts -->
+<section class="mb-lg">
+<h2 class="text-h2 font-h2 text-on-surface mb-md">Back Again?</h2>
+<div class="grid grid-cols-2 gap-gutter">
+<!-- Reorder Item 1 -->
+<div class="bg-white rounded-lg border border-surface-container-high p-sm flex items-center gap-3 shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+<img alt="Snack pack" class="w-12 h-12 rounded object-cover" data-alt="colorful packaging of assorted healthy snacks on clean light background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-SDGXvga8fJ0x0m1wHk8OaRylgdxIptbdt0aiMtvV1eMrW9wVCPQd0l6yblqd3caDrdwlzjUZHPq5C_HXMvlqEaL5ubZLe6cngEOHCwf-vvCgUm9LjTXgZovdBwQQoFop6mM4VXpCOMriubPeU1FZIm9EmJ0EGiIBDfKk2ezCNr2VtrSbAYGVspn65X93uQUeZDyxOWWiZK4JO8Ut-teIqxzP84ldjgH7i7_ReU8rIeMAsvuY6ZAv4fak8sVVP75hvfxNnfeenUI"/>
+<div class="flex-1">
+<p class="text-label-sm font-label-sm text-on-surface line-clamp-1">Mixed Nuts 500g</p>
+<p class="text-caption font-caption text-primary mt-1">Buy Again</p>
+</div>
+</div>
+<!-- Reorder Item 2 -->
+<div class="bg-white rounded-lg border border-surface-container-high p-sm flex items-center gap-3 shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+<img alt="Energy drink" class="w-12 h-12 rounded object-cover" data-alt="sleek energy drink can with condensation against a dark minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDulqCshTsaQtzaKu5P3vDWCQu03VLnDthwcPfEL_nGco_r5B-RB2BixIHu3_E9en5XzDiaKvQRCoffCHeFnOuYEZZk8dXb5j-kjpDFmA-jnFd73VGKU5p1UgjrFltgSqZL0dXd8WhPt12nH5JbpKQjoQ5JsowK50xwGmM-IW6r9pOMUE1ZBj3QzitHIC81WAvFGIRD0blYSc3sOpPTSTOT3XorLZZ9M30VCIqXHUawMUyu9YdUQgc-9Cfquu4Q6CniLe9nvUsPBmg"/>
+<div class="flex-1">
+<p class="text-label-sm font-label-sm text-on-surface line-clamp-1">Energy Drink Case</p>
+<p class="text-caption font-caption text-primary mt-1">Buy Again</p>
+</div>
+</div>
+<!-- Reorder Item 3 -->
+<div class="bg-white rounded-lg border border-surface-container-high p-sm flex items-center gap-3 shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+<img alt="Notebooks" class="w-12 h-12 rounded object-cover" data-alt="stack of minimalist pastel colored notebooks on white desk top down view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkP7eddqLu1-PiFV6hpJ5t8tqOyDpbH2_7jKG2kXytWbdLJHWdHLDHwB3vKpiHrGCwm5hyM6i65_mdP7ayvGr4UHTtkm3f3SXVNaQTTND6fmu34BXajRwJlZ4KEBw_5uB9Gm2bqp0rT_-0EDIHQqQYhkzaBB0EJu_bfl2MsXZj_jTEo4nUph3vS2VgECoitAKoSg7GBJPScjZ24Y4FejTuRR94FZSzdJFAmiXNNIcJgmkY9SsmM91EQn7Ioo6boq8twVrkjHqolhs"/>
+<div class="flex-1">
+<p class="text-label-sm font-label-sm text-on-surface line-clamp-1">Ruled Notebooks x3</p>
+<p class="text-caption font-caption text-primary mt-1">Buy Again</p>
+</div>
+</div>
+<!-- Reorder Item 4 -->
+<div class="bg-white rounded-lg border border-surface-container-high p-sm flex items-center gap-3 shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+<div class="w-12 h-12 rounded bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">receipt_long</span>
+</div>
+<div class="flex-1">
+<p class="text-label-sm font-label-sm text-on-surface">View All History</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-white dark:bg-gray-950 text-orange-600 dark:text-orange-500 font-['Plus_Jakarta_Sans'] text-[10px] font-medium docked full-width bottom-0 border-t border-gray-100 dark:border-gray-800 shadow-[0_-2px_10px_rgba(0,0,0,0.05)] active:scale-95 transition-transform fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 pb-safe bg-white/95 backdrop-blur-md md:hidden">
+<a class="flex flex-col items-center justify-center text-orange-600 dark:text-orange-500 hover:opacity-80" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">home</span>
+<span>Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 dark:text-gray-400 hover:opacity-80" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">storefront</span>
+<span>Mall</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 dark:text-gray-400 hover:opacity-80" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">live_tv</span>
+<span>Live</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 dark:text-gray-400 hover:opacity-80" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">notifications</span>
+<span>Notifications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 dark:text-gray-400 hover:opacity-80" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">person</span>
+<span>Me</span>
+</a>
+</nav>
+</body></html>

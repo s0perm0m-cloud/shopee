@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Shopee Home Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#eeeeee",
+                        "error": "#ba1a1a",
+                        "background": "#f9f9f9",
+                        "tertiary-fixed-dim": "#63dac7",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary": "#00685c",
+                        "tertiary-container": "#008375",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#5b403b",
+                        "on-tertiary-container": "#f4fffb",
+                        "primary-fixed": "#ffdad3",
+                        "surface-tint": "#b62506",
+                        "inverse-surface": "#2f3131",
+                        "on-surface": "#1a1c1c",
+                        "surface-dim": "#dadada",
+                        "primary-container": "#d63c1e",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary-container": "#fffbff",
+                        "on-secondary-fixed": "#271900",
+                        "primary": "#b22204",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary-fixed-variant": "#005047",
+                        "on-secondary-container": "#684a00",
+                        "secondary-container": "#f9b500",
+                        "inverse-primary": "#ffb4a4",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#7b5800",
+                        "outline": "#8f7069",
+                        "surface-bright": "#f9f9f9",
+                        "primary-fixed-dim": "#ffb4a4",
+                        "on-secondary-fixed-variant": "#5d4200",
+                        "surface": "#f9f9f9",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary-fixed-dim": "#ffbb0c",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#3e0500",
+                        "on-primary-fixed-variant": "#8d1600",
+                        "tertiary-fixed": "#81f6e3",
+                        "outline-variant": "#e3beb6",
+                        "surface-container-low": "#f3f3f3",
+                        "secondary-fixed": "#ffdea6",
+                        "on-tertiary-fixed": "#00201c",
+                        "surface-variant": "#e2e2e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "margin-mobile": "12px",
+                        "lg": "24px",
+                        "unit": "4px",
+                        "xs": "4px",
+                        "gutter": "10px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "h1": ["Plus Jakarta Sans"],
+                        "h3": ["Plus Jakarta Sans"],
+                        "price-lg": ["Plus Jakarta Sans"],
+                        "h2": ["Plus Jakarta Sans"],
+                        "caption": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "h1": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "h3": ["16px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "price-lg": ["20px", { "lineHeight": "20px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "h2": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+                        "caption": ["10px", { "lineHeight": "12px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "22px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { -webkit-tap-highlight-color: transparent; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 16px); }
+        .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen relative pb-safe">
+<!-- TopAppBar -->
+<header class="flex items-center justify-between px-3 h-14 w-full fixed top-0 z-50 bg-white shadow-sm border-b border-zinc-100 dark:border-zinc-800 pt-safe font-['Plus_Jakarta_Sans'] text-sm font-normal">
+<button class="p-2 text-zinc-500 hover:bg-zinc-50 active:opacity-80 transition-opacity rounded-full">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+</button>
+<div class="flex-1 px-2">
+<div class="flex items-center bg-[#F0F0F0] rounded h-9 px-3">
+<span class="material-symbols-outlined text-zinc-400 text-[20px] mr-2">search</span>
+<input class="bg-transparent border-none outline-none w-full text-body-md p-0 focus:ring-0 placeholder:text-zinc-500" placeholder="Search Shopee" type="text"/>
+<span class="material-symbols-outlined text-zinc-400 text-[20px] ml-2">photo_camera</span>
+</div>
+</div>
+<button class="p-2 text-zinc-500 hover:bg-zinc-50 active:opacity-80 transition-opacity rounded-full">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="pt-[calc(56px+env(safe-area-inset-top,0px))] pb-[calc(64px+env(safe-area-inset-bottom,16px))] overflow-y-auto">
+<!-- Hero Carousel -->
+<section class="w-full aspect-[21/9] bg-surface-variant relative overflow-hidden">
+<img alt="Promotional Banner" class="w-full h-full object-cover" data-alt="Vibrant online shopping promotional banner with generic retail boxes and discount graphics in warm orange and red tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAUObITi1GMMsut2JlWuRvrNrkWHfdhC1JX1-m8m6z9E_9nF6EKoTdushXdUJ0onS3TZ9w_bDQ2Ttd6OW4QLrqeALRDn_eSwuaAIF0C_8VUi4otveTxSz_hd-PKnv_aqsOCYo3i5Fct3N_snn51rXU67fRxMeTmj3PNZbWCrXoAtVyZ-BXc8HedIEwl0mXtxdZItdTO2beqUMiACI-laQRR7V4RGGLSZKIQ6UX_3_WtlRGMhKOnBR3wnQBflerCHlToZPyvcaomCI"/>
+<!-- Carousel Indicators -->
+<div class="absolute bottom-2 left-0 right-0 flex justify-center gap-1.5">
+<div class="w-1.5 h-1.5 rounded-full bg-white opacity-100"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-white opacity-50"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-white opacity-50"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-white opacity-50"></div>
+</div>
+</section>
+<!-- Category Grid -->
+<section class="py-md px-margin-mobile bg-white mb-sm">
+<div class="grid grid-cols-4 gap-y-lg gap-x-2">
+<!-- Category Item -->
+<div class="flex flex-col items-center gap-2 cursor-pointer">
+<div class="w-12 h-12 bg-primary-container rounded-xl flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-[24px]">smartphone</span>
+</div>
+<span class="font-caption text-caption text-center">Electronics</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer">
+<div class="w-12 h-12 bg-secondary-container rounded-xl flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[24px]">checkroom</span>
+</div>
+<span class="font-caption text-caption text-center">Fashion</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer">
+<div class="w-12 h-12 bg-tertiary-container rounded-xl flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[24px]">chair</span>
+</div>
+<span class="font-caption text-caption text-center">Home</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer">
+<div class="w-12 h-12 bg-error-container rounded-xl flex items-center justify-center text-on-error-container">
+<span class="material-symbols-outlined text-[24px]">health_and_safety</span>
+</div>
+<span class="font-caption text-caption text-center">Health</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer">
+<div class="w-12 h-12 bg-surface-container-high rounded-xl flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[24px]">sports_esports</span>
+</div>
+<span class="font-caption text-caption text-center">Gaming</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer">
+<div class="w-12 h-12 bg-surface-container-high rounded-xl flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[24px]">face</span>
+</div>
+<span class="font-caption text-caption text-center">Beauty</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer">
+<div class="w-12 h-12 bg-surface-container-high rounded-xl flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[24px]">pets</span>
+</div>
+<span class="font-caption text-caption text-center">Pets</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer">
+<div class="w-12 h-12 bg-surface-container-high rounded-xl flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[24px]">grid_view</span>
+</div>
+<span class="font-caption text-caption text-center">More</span>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="h-sm bg-surface-container-low w-full"></div>
+<!-- Daily Discover -->
+<section class="px-margin-mobile py-md">
+<h2 class="font-h2 text-h2 text-on-background mb-md text-center text-[#EE4D2D]">DAILY DISCOVER</h2>
+<div class="grid grid-cols-2 gap-gutter">
+<!-- Product Card 1 -->
+<div class="bg-white rounded border border-[#E8E8E8] overflow-hidden flex flex-col relative">
+<div class="aspect-square w-full bg-surface-variant relative">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="Red Nike athletic shoe floating on a clean white background with subtle shadow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ9pWFvW9WPcj8jGHiCuAkVcixjVSHWO-q50APc1vvO0sZDa3s0dJJscWIAiQ-JGzzOc_kg-vtJ947Y0x2HO4K2LmC2qxTaAxcYFFG1anW8jNR5c1LPmt2GIw_urD6flnZiZKH00Of_EorhtBQLvS8b-HoqZDm2xuzroxk-OZIfrkaNISRCvKIecOzJ2FTUpg4STfo5xwnBaB1YBjZCXLuMCRAKvlJxVsiB-DyIYgm3-0stkHuLa29ZJllmheq458E3y2-LqFtbnM"/>
+<div class="absolute top-0 right-0 bg-[#f9b500] text-white font-caption text-caption px-1.5 py-0.5 rounded-bl">Mall</div>
+</div>
+<div class="p-2 flex flex-col flex-grow">
+<h3 class="font-body-md text-body-md line-clamp-2 mb-2 text-on-surface flex-grow">Premium Athletic Running Shoes Lightweight Breathable Sport Sneakers</h3>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-price-lg text-price-lg text-[#EE4D2D]">$45.00</span>
+<span class="font-caption text-caption text-zinc-500">1.2k sold</span>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-white rounded border border-[#E8E8E8] overflow-hidden flex flex-col relative">
+<div class="aspect-square w-full bg-surface-variant relative">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="Minimalist smart watch with black band on a light gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB68BBXq8csKR2lFoSDrbiHOZiYk57kMuXsAQShvkdYie0VMZRwGbGlB8Dr0EgJc6jKxCvrwqsoVApMAKD66hrZZTy1GXCVIZSUuBv_1gMF0ZVrNxij1Lv9rgrHoXonKikqhKcXk6QeOfmrGLzOHfSOF9NG4pUZZ7gISiLbigyqtUyJKwv3kSyJ4FuVF3Jn8AIw3ypfcbRVm4zVLmgoeYCYPZWetyZbCtgK88VORaKg2vf6Ly3pZ7j8fdvYyjtexjrfYBaa9NV69bY"/>
+</div>
+<div class="p-2 flex flex-col flex-grow">
+<h3 class="font-body-md text-body-md line-clamp-2 mb-2 text-on-surface flex-grow">Smart Watch Series 7 Waterproof Fitness Tracker Heart Rate Monitor</h3>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-price-lg text-price-lg text-[#EE4D2D]">$129.00</span>
+<span class="font-caption text-caption text-zinc-500">3.4k sold</span>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-white rounded border border-[#E8E8E8] overflow-hidden flex flex-col relative">
+<div class="aspect-square w-full bg-surface-variant relative">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="High-end over-ear wireless headphones in black resting on a wooden surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaVRZFbEonAGKtT-Zik1yqdz9PlWvUOYaRVHEEJbQkhYEsNTKpN8SAl4Jkl8jwv39oEiY-hq4N8wxNuoip6dcIdJeK27UX61g3NWLfYIZA6N83RQxvnZh8YMNOKohElTHJ1uwXUZ-LJOsKqldqjJiXiGnBHL-apOgyjR4d6LNKHR4xsFBwz1jZUpuiyJ-s_Rycw4fZLeFovfaYWfaR1GaB_p5AniKHFSRzpUoaI16Ohby8x-fcqkiZfVRhxs5TjFN4MkxXK2qSO6Y"/>
+<div class="absolute top-0 right-0 bg-[#f9b500] text-white font-caption text-caption px-1.5 py-0.5 rounded-bl">Mall</div>
+</div>
+<div class="p-2 flex flex-col flex-grow">
+<h3 class="font-body-md text-body-md line-clamp-2 mb-2 text-on-surface flex-grow">Wireless Noise Cancelling Over-Ear Headphones Bluetooth 5.0</h3>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-price-lg text-price-lg text-[#EE4D2D]">$89.50</span>
+<span class="font-caption text-caption text-zinc-500">500 sold</span>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="bg-white rounded border border-[#E8E8E8] overflow-hidden flex flex-col relative">
+<div class="aspect-square w-full bg-surface-variant relative">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="Aesthetic skincare bottle with dropper on a marble tray with soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvlRXRvDzw52yOAecRRq2ZhXn5m4fb70C8Xg23FROPsr6psms4KyyVZWCFq-QeUvOcJBJi2OcIWkVFXapLlIdPX8oO7fIE_fqkjwSSNokGDhxzzwETF2N_amzFLehEgx4P_6BhQau9dLDbLSbEGIZIXelLL6jJUGgBIP2n-CVn2VornIHoLVBI17wvhof7Ae1novmGcQUixPfENT4jJe3shuUIb1LddcmrzjOJs4JWRkVAgvXXjGeqkvUKtqOFRThb1xeiAe7lq8o"/>
+</div>
+<div class="p-2 flex flex-col flex-grow">
+<h3 class="font-body-md text-body-md line-clamp-2 mb-2 text-on-surface flex-grow">Vitamin C Face Serum Anti-Aging Brightening Skincare 30ml</h3>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-price-lg text-price-lg text-[#EE4D2D]">$24.90</span>
+<span class="font-caption text-caption text-zinc-500">8.9k sold</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full h-16 z-50 flex justify-around items-center pb-safe bg-white/95 backdrop-blur-md border-t border-zinc-100 shadow-[0_-2px_10px_rgba(0,0,0,0.05)] font-['Plus_Jakarta_Sans'] text-[10px] font-medium">
+<a class="flex flex-col items-center justify-center text-[#EE4D2D] hover:bg-zinc-50 active:scale-95 transition-transform duration-150 w-full h-full" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:bg-zinc-50 active:scale-95 transition-transform duration-150 w-full h-full" href="#">
+<span class="material-symbols-outlined">dynamic_feed</span>
+<span class="mt-1">Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:bg-zinc-50 active:scale-95 transition-transform duration-150 w-full h-full" href="#">
+<span class="material-symbols-outlined">live_tv</span>
+<span class="mt-1">Live</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:bg-zinc-50 active:scale-95 transition-transform duration-150 w-full h-full" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="mt-1">Notifications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:bg-zinc-50 active:scale-95 transition-transform duration-150 w-full h-full" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="mt-1">Me</span>
+</a>
+</nav>
+</body></html>
